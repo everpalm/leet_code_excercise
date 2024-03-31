@@ -11,7 +11,7 @@ def mergeTwoLists(list1, list2):
     # Iterate through both lists until one is exhausted
     while list1 and list2:
         if list1.val < list2.val:
-            current.next = list1
+            current.next = list1 # Use pointer next to connect two list
             list1 = list1.next 
         else:
             current.next = list2
