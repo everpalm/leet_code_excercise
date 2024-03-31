@@ -1,3 +1,4 @@
+def gv
 pipeline {
     triggers {
         // Trigger hook every 5 minutes
@@ -21,17 +22,29 @@ pipeline {
         )
     }
     stages {
+        stage("Init") {
+            steps {
+                script {
+                    gv = load "script.groovy"
+                }
+            }
+        }
         stage('Build') {
             steps {
-                echo 'Build - 1'
+                // echo 'Build - 1'
+                script {
+                    gv.buildApp()
+                }
             }
         }
         stage('Test') {
             steps {
-                echo 'Start testing - 2'
+                // echo 'Start testing - 2'
+                script {
+                    gv.testApp()
+                }
                 // sh 'cd /home/pi/MY_TEST/demo/tests && python3 -m pytest -s -v -x test_system_under_testing.py'
                 sh "cd /home/pi/MY_TEST/demo/tests && python3 -m pytest -s -v -x test_${params.MY_SUITE}.py"
-
             }
             post {
                 always {
