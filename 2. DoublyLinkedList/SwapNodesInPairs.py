@@ -55,10 +55,14 @@ class DoublyLinkedList:
             next_node = current.next  # The node to be swapped with current
             
             # Swapping process involving re-linking prev and next pointers
-            if current.prev:
-                current.prev.next = next_node
-            else:  # If current is the head of the list
+            # if current.prev:
+            #     current.prev.next = next_node
+            # else:  # If current is the head of the list
+            #     self.head = next_node
+            if not current.prev:
                 self.head = next_node
+            else:
+                current.prev.next = next_node
             
             if next_node.next:
                 next_node.next.prev = current

@@ -57,6 +57,7 @@ def is_balanced_parentheses(my_string):
             stack.pop()
     
     return stack.is_empty()
+    # return True
         
 
 

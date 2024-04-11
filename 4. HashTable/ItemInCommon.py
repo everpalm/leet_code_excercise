@@ -23,16 +23,16 @@ def item_in_common(list1, list2):
     # return False
     my_dict = {}
     for i in list1:
-        print('i = ', i)
+        # print('i = ', i)
         my_dict[i] = True
-        print('my_dict[i] = ', my_dict[i])
+        # print('my_dict[i] = ', my_dict[i])
  
     for j in list2:
         if j in my_dict:
-            print('j = ', j)
-            print('my_dict[j] = ', my_dict[j])
-            return True
- 
+            # print('j = ', j)
+            # print('my_dict[j] = ', my_dict[j])
+            return my_dict[j]
+            #return True
     return False
 
 

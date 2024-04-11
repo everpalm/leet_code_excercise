@@ -32,11 +32,11 @@ def find_duplicates(nums):
     num_counts = {}
     print('nums = ', nums)
     for num in nums:
-        temp = num_counts.get(num, 0)
+        count = num_counts.get(num, 0)
         print('num = ', num)
-        print('temp = ', temp)
+        print('count = ', count)
         # num_counts[num] = num_counts.get(num, 0) + 1
-        num_counts[num] = temp + 1
+        num_counts[num] = count + 1
     print('num_counts = ', num_counts)
     duplicates = []
     for num, count in num_counts.items():

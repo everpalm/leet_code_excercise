@@ -41,9 +41,10 @@ class DoublyLinkedList:
     def swap_first_last(self):
         if self.length == 0:
             return False
-        first = self.head.value
-        self.head.value = self.tail.value
-        self.tail.value = first
+        # first = self.head.value
+        # self.head.value = self.tail.value
+        # self.tail.value = first
+        self.head.value, self.tail.value = self.tail.value, self.head.value
         return True
     
     

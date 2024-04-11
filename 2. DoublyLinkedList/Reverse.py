@@ -45,8 +45,9 @@ class DoublyLinkedList:
     def reverse(self):
         for _ in range(self.length):
             temp = self.head.next
-            self.head.next = self.head.prev
-            self.head.prev = temp
+            # self.head.next = self.head.prev
+            # self.head.prev = temp
+            self.head.next, self.head.prev = self.head.prev, self.head.next
             self.head = temp # Iterate head to the next
         self.head = self.tail
         return True

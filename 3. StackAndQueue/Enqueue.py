@@ -16,11 +16,17 @@ class MyQueue:
         self.stack2 = []
         
     def enqueue(self,value):
-        while len(self.stack1) != 0:
+        print('value = ', value)
+        print('self.stack1 = ', self.stack1)
+        # while len(self.stack1) != 0:
+        while not self.is_empty():
             self.stack2.append(self.stack1.pop())
+            print('self.stack2 = ', self.stack2)
+        # print('self.stack1 = ', self.stack1)
         self.stack1.append(value)
-        
-        while len(self.stack2) != 0:
+
+        # while len(self.stack2) != 0:
+        while not self.is_buffering():
             self.stack1.append(self.stack2.pop())
             
     def peek(self):
@@ -28,6 +34,9 @@ class MyQueue:
 
     def is_empty(self):
         return len(self.stack1) == 0
+    
+    def is_buffering(self):
+        return len(self.stack2) == 0
         
     # def enqueue(self, value):
     #     while len(self.stack1) > 0:
@@ -44,6 +53,7 @@ q.enqueue(1)
 q.enqueue(2)
 q.enqueue(3)
 
+print("Enqueue = ", q.stack1)
 # Output the front of the queue
 print("Front of the queue:", q.peek())
 
