@@ -1,4 +1,5 @@
 '''
+Coding Exercise 103
 Given a sorted list of integers, rearrange the list in-place such that all unique elements appear at the beginning of the list.
 
 Your function should return the new length of the list containing only unique elements. Note that you should not create a new list or use any additional data structures to solve this problem. The original list should be modified in-place.

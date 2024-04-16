@@ -1,14 +1,17 @@
 Introduction to Sets
-Sets are similar to dictionaries except that instead of having key/value pairs they only have the keys but not the values.
+Sets are similar to dictionaries except that instead of having key/value pairs
+they only have the keys but not the values.
 
-Like dictionaries, they are implemented using a hash table (which is why we are covering them here).
+Like dictionaries, they are implemented using a hash table (which is why we
+are covering them here).
 
 Sets can only contain unique elements (meaning that duplicates are not allowed). 
 
-They are useful for various operations such as finding the distinct elements in a collection and performing set operations such as union and intersection.
+They are useful for various operations such as finding the distinct elements
+in a collection and performing set operations such as union and intersection.
 
-They are defined by either using curly braces {} or the built-in set() function like this:
-
+They are defined by either using curly braces {} or the built-in set()
+function like this:
 
 
 # Create a set using {}
@@ -18,7 +21,9 @@ my_set = {1, 2, 3, 4, 5}
 my_set = set([1, 2, 3, 4, 5])
 
 
-Once a set is defined, you can perform various operations on it, such as adding or removing elements, finding the union, intersection, or difference of two sets, and checking if a given element is a member of a set.
+Once a set is defined, you can perform various operations on it, such as
+adding or removing elements, finding the union, intersection, or difference
+of two sets, and checking if a given element is a member of a set.
 
 Here are some examples of common set operations in Python:
 

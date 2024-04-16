@@ -1,9 +1,11 @@
 '''
 You are given a list of numbers called nums and a number k.
 
-Your task is to write a function find_kth_smallest(nums, k) to find the kth smallest number in the list.
+Your task is to write a function find_kth_smallest(nums, k) to find the kth
+smallest number in the list.
 
-The list can contain duplicate numbers and k is guaranteed to be within the range of the length of the list.
+The list can contain duplicate numbers and k is guaranteed to be within the
+range of the length of the list.
 
 This function will take the following parameters:
 nums: A list of integers.
@@ -30,7 +32,6 @@ class MaxHeap:
     def insert(self, value):
         self.heap.append(value)
         current = len(self.heap) - 1
-
         while current > 0 and self.heap[current] > self.heap[self._parent(current)]:
             self._swap(current, self._parent(current))
             current = self._parent(current)
@@ -80,6 +81,9 @@ class MaxHeap:
 def find_kth_smallest(nums, k):
     # my_heap = sorted(nums)
     # return(my_heap[k-1])
+    # my_sorted = sorted(nums, reverse=True)
+    # print('my_sorted = ', my_sorted)
+    # print('test = ', my_sorted.pop(-k))
     max_heap = MaxHeap()
  
     for num in nums:
@@ -88,16 +92,16 @@ def find_kth_smallest(nums, k):
         smallest k numbers from the list that have been seen so far.'''
         if len(max_heap.heap) > k:
             max_heap.remove()
- 
+    print('max_heap.heap = ', max_heap.heap)
     return max_heap.remove()
         
 
 
 
 # Test cases
-nums = [[3,2,1,5,6,4], [6,5,4,3,2,1], [1,2,3,4,5,6], [3,2,3,1,2,4,5,5,6]]
-ks = [2, 3, 4, 7]
-expected_outputs = [2, 3, 4, 5]
+nums = [[3,2,1,5,6,4], [6,5,4,3,2,1], [1,2,3,4,5,6], [3,2,3,1,2,4,5,5,6], [99, 70, 80, 50, 51, 53, 52]]
+ks = [2, 3, 4, 7, 2]
+expected_outputs = [2, 3, 4, 5, 51]
 
 for i in range(len(nums)):
     print(f'Test case {i+1}...')

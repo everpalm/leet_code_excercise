@@ -1,9 +1,15 @@
 '''
-Write a function named stream_max that takes as its input a list of integers (nums). The function should return a list of the same length, where each element in the output list is the maximum number seen so far in the input list.
+Write a function named stream_max that takes as its input a list of integers
+(nums). The function should return a list of the same length, where each
+element in the output list is the maximum number seen so far in the input
+list.
 
-More specifically, for each index i in the input list, the element at the same index in the output list should be the maximum value among the elements at indices 0 through i in the input list.
+More specifically, for each index i in the input list, the element at the same
+index in the output list should be the maximum value among the elements at
+indices 0 through i in the input list.
 
-Use the provided MaxHeap class to solve this problem. You should not need to modify the MaxHeap class to complete this task.
+Use the provided MaxHeap class to solve this problem. You should not need to 
+modify the MaxHeap class to complete this task.
 
 Function Signature: def stream_max(nums):
 '''

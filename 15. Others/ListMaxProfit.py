@@ -1,4 +1,5 @@
 '''
+Coding Exercise 104
 You are given a list of integers representing stock prices for a certain company over a period of time, where each element in the list corresponds to the stock price for a specific day.
 
 You are allowed to buy one share of the stock on one day and sell it on a later day.
@@ -56,6 +57,7 @@ def max_profit(prices):
     min_price = prices[0]  # Initialize min_price with the first stock price
     max_profit = 0  # Initialize max_profit as 0
 
+    # for price in prices[1:]:
     for price in prices:
         # Update max_profit if selling at the current price yields a better profit
         max_profit = max(max_profit, price - min_price)

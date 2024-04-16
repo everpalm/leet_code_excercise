@@ -1,11 +1,14 @@
 '''
-Problem: Given an array of integers nums, find all the duplicates in the array using a hash table (dictionary).
+Problem: Given an array of integers nums, find all the duplicates in the array
+using a hash table (dictionary).
 
 Input:
 A list of integers nums.
 
 Output:
-A list of integers representing the numbers in the input array nums that appear more than once. If no duplicates are found in the input array, return an empty list [].
+A list of integers representing the numbers in the input array nums that
+appear more than once. If no duplicates are found in the input array, return
+an empty list [].
 '''
 # WRITE FIND_DUPLICATES FUNCTION HERE #
 #                                     #

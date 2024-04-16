@@ -19,6 +19,19 @@ def are_vampire_fangs_variety(x, y):
     return sorted_fangs == sorted_v
 
 # Example tests
-examples = [(20, 50), (210, 600), (30, 51), (222, 666)]
-results = {f'{x} x {y}': are_vampire_fangs_variety(x, y) for x, y in examples}
-results
+# examples = [(20, 50), (210, 600), (30, 51), (222, 666)]
+# results = {f'{x} x {y}': are_vampire_fangs_variety(x, y) for x, y in examples}
+# results
+
+print('x, y = ', (20, 50))
+result = are_vampire_fangs_variety(20, 50)
+print('result = ', result)
+
+print('x, y = ', (210, 600))
+print('x * y = ', 210*600)
+result = are_vampire_fangs_variety(210, 600)
+print('result = ', result)
+
+print('x, y = ', (30, 51))
+result = are_vampire_fangs_variety(30, 51)
+print('result = ', result)

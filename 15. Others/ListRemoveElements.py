@@ -1,4 +1,5 @@
 '''
+Coding Exercise 100
 Given a list of integers nums and an integer val, write a function remove_element that removes all occurrences of val in the list in-place and returns the new length of the modified list.
 
 The function should not allocate extra space for another list; instead, it should modify the input list in-place with O(1) extra memory.
