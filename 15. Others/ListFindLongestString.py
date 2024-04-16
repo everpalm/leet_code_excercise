@@ -35,6 +35,13 @@ string_list = ['apple', 'banana', 'kiwi', 'pear']
 longest = find_longest_string(string_list)
 print(longest)
 
+string_list = ['1234', 'abcd', 'efgh', 'ijkl']
+longest = find_longest_string(string_list)
+print(longest)
+
+string_list = []
+longest = find_longest_string(string_list)
+print(longest)
 """
     EXPECTED OUTPUT:
     ----------------
