@@ -1,12 +1,4 @@
 '''
-
-
-Code
-
-Testcase
-Testcase
-
-Test Result
 217. Contains Duplicate
 Solved
 Easy
