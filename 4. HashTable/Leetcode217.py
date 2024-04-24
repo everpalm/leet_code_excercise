@@ -5,9 +5,8 @@ Easy
 
 Topics
 Companies
-Given an integer array nums, return true if any value appears at least twice in the array, and return false if every element is distinct.
-
- 
+Given an integer array nums, return true if any value appears at least twice
+in the array, and return false if every element is distinct.
 
 Example 1:
 
@@ -34,15 +33,22 @@ class Solution(object):
         :type nums: List[int]
         :rtype: bool
         """
-        my_hash = {}
-        count = 0
+        # my_hash = {}
+        # count = 0
+        # for num in nums:
+        #     count = my_hash.get(num, 0)
+        #     count += 1
+        #     if count > 1:
+        #         return True
+        #     else:
+        #         my_hash[num] = count
+        # return False
+        nums_set = set()
         for num in nums:
-            count = my_hash.get(num, 0)
-            count += 1
-            if count > 1:
+            if num in nums_set:
                 return True
             else:
-                my_hash[num] = count
+               nums_set.add(num) 
         return False
 
 array1 = [1, 2, 3, 4]

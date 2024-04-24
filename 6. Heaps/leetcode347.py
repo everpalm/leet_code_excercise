@@ -40,26 +40,30 @@ class Solution(object):
         :type k: int
         :rtype: List[int]
         """
-        freq = Counter(nums)
-        # print('most common = ', freq.most_common(2))
-        top_k = freq.most_common(k)
-        print('top_k = ', top_k)
-        elements = [element[0] for element in top_k]
-        print('elements = ', elements)
-        return elements
+        # freq = Counter(nums)
+        # # print('most common = ', freq.most_common(2))
+        # top_k = freq.most_common(k)
+        # print('top_k = ', top_k)
+        # elements = [element[0] for element in top_k]
+        # print('elements = ', elements)
+        # return elements
+        
         # # Build a heap of the top k elements and their frequencies
         # # Use negative frequency for max-heap behavior using min-heap
-        # heap = []
-        # for num, count in freq.items():
-        #     heapq.heappush(heap, (count, num))
-        #     print('heap = ', heap)
-        #     if len(heap) > k:
-        #         heapq.heappop(heap)
+        freq = Counter(nums)
+        print('freq = ', freq)
+        heap = []
+        for num, count in freq.items():
+            heapq.heappush(heap, (count, num))
+            print('heap = ', heap)
+            if len(heap) > k:
+                heapq.heappop(heap)
         
-        # # Extract the elements from the heap
-        # top_k = [heapq.heappop(heap)[1] for _ in range(len(heap))]
-        # print('top_k = ', top_k)
-        # return top_k[::-1]  # Return in any order
+        # Extract the elements from the heap
+        top_k = [heapq.heappop(heap)[1] for _ in range(len(heap))]
+        print('top_k = ', top_k)
+        return top_k[::-1]  # Return in any order
+
         
 my_solution = Solution()
 nums = [1,1,1,2,2,3]
