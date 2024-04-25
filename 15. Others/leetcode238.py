@@ -33,6 +33,17 @@ Constraints:
 2 <= nums.length <= 105
 -30 <= nums[i] <= 30
 The product of any prefix or suffix of nums is guaranteed to fit in a 32-bit integer.
+
+Note:
+ 1  [1] [2] [3]
+[0]  1  [2] [3]
+[0] [1]  1  [3]
+[0] [1] [2]  1
+^^^^^^^^^^ start out with the left side
+answer[0] = 1
+answer[1] = answer[0] * num[0] = 1 * 1
+answer[2] = answer[1] * num[1] = 1 * 2
+answer[3] = answer[2] * num[2] = 2 * 3
 '''
 # import operator
 
@@ -43,38 +54,38 @@ class Solution(object):
         :type nums: List[int]
         :rtype: List[int]
         """
-        # length = len(nums)
-        # # The answer array to be returned
-        # answer = [0]*length
-        # print('answer = ', answer)
-        # # answer[i] contains the product of all the elements to the left
-        # # For the element at index 0, there are no elements to the left, so answer[0] should be 1
-        # answer[0] = 1
-        # for i in range(1, length):
-        #     answer[i] = nums[i - 1] * answer[i - 1]
-        #     print(f'answer[{i}] = ', answer[i])
-        # # print('answer = ', operator.mul(nums))
-        # # R is a running product of elements to the right
-        # R = 1
-        # for i in reversed(range(length)):
-        #     # For the index 'i', R would contain the product of all elements to the right. We update R accordingly
-        #     print('i = ', i)
-        #     answer[i] = answer[i] * R
-        #     print(f'R answer{i} = ', answer[i])
-        #     R *= nums[i]
-        # return answer
+        length = len(nums)
+        # The answer array to be returned
+        answer = [0]*length
+        print('answer = ', answer)
+        # answer[i] contains the product of all the elements to the left
+        # For the element at index 0, there are no elements to the left, so answer[0] should be 1
+        answer[0] = 1
+        for i in range(1, length):
+            answer[i] = nums[i - 1] * answer[i - 1]
+            print(f'answer[{i}] = ', answer[i])
+        # print('answer = ', operator.mul(nums))
+        # R is a running product of elements to the right
+        multiplier = 1
+        for j in reversed(range(length)):
+            # For the index 'i', R would contain the product of all elements to the right. We update R accordingly
+            # print('j = ', j)
+            answer[j] = answer[j] * multiplier
+            print(f'R answer[{j}] = ', answer[j])
+            multiplier *= nums[j]
+        return answer
 
         # Brute-force solution
-        result = []
+        # result = []
         # Loop over each element in nums
-        for i in range(len(nums)):
-            product = 1
-            # Multiply all elements except itself
-            for j in range(len(nums)):
-                if i != j:
-                    product *= nums[j]
-            result.append(product)
-        return result
+        # for i in range(len(nums)):
+        #     product = 1
+        #     # Multiply all elements except itself
+        #     for j in range(len(nums)):
+        #         if i != j:
+        #             product *= nums[j]
+        #     result.append(product)
+        # return result
     
 
 my_solution = Solution()
