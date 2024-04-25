@@ -45,21 +45,26 @@ class Stack:
 #                                       #
 #########################################
 def reverse_string(my_string):
-    stack = Stack()    
+    # stack = Stack()    
+    # reversed_string = ""
+ 
+    # for char in my_string:
+    #     stack.push(char)
+ 
+    # # while not stack.is_empty():
+    # while len(stack.stack_list) != 0:
+    #     # reversed_string += stack.pop()
+    #     reversed_string += stack.stack_list.pop()
+    #     # reversed_string.append(stack.pop()) # string has no append method!
+    # return reversed_string
+    # # return(my_string[::-1])
+
     reversed_string = ""
- 
-    for char in my_string:
-        stack.push(char)
- 
-    # while not stack.is_empty():
-    while len(stack.stack_list) != 0:
-        # reversed_string += stack.pop()
-        reversed_string += stack.stack_list.pop()
-        # reversed_string.append(stack.pop()) # string has no append method!
+    while len(my_string) != 0:
+        reversed_string = reversed_string + my_string[-1]
+        my_string = my_string[:-1]
+        print('reversed_string = ', reversed_string)
     return reversed_string
-    # return(my_string[::-1])
-
-
 
 my_string = 'hello'
 
