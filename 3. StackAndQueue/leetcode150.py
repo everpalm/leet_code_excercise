@@ -63,8 +63,8 @@ class Solution(object):
             else:
                 # var2 = int(my_stack.pop())
                 # var1 = int(my_stack.pop())
-                var1 = my_stack.pop()
                 var2 = my_stack.pop()
+                var1 = my_stack.pop()
                 print(f'var1 = {var1}, var2 = {var2} ')
                 if token == '+':
                     # result = var1 + var2
@@ -72,7 +72,7 @@ class Solution(object):
                     print('+ result = ', my_stack[-1])
                 elif token == '-':
                     # result = var1 - var2
-                    my_stack.append(var2 - var1)
+                    my_stack.append(var1 - var2)
                     print('- result = ', my_stack[-1])
                 elif token == '*':
                     # result *= int(my_stack.pop())
@@ -83,7 +83,7 @@ class Solution(object):
                     if var1 == 0:
                         return False
                     # result, remainder = divmod(var1,  var2)
-                    my_stack.append(int(var2 / var1))
+                    my_stack.append(int(var1 / var2))
                     # result /= int(my_stack.pop())
                     # print('/ result = ', my_stack[-1])
         return my_stack[0]

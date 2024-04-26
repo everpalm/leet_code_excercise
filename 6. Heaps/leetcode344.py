@@ -30,7 +30,7 @@ s[i] is a printable ascii character.
 
 
 class Solution(object):
-    def reverseString(self, s):
+    def reverseString(self, s: list) -> list[int]:
         """
         :type s: List[str]
         :rtype: None Do not return anything, modify s in-place instead.
@@ -41,6 +41,7 @@ class Solution(object):
             left += 1
             right -= 1
         return s
+        # return s[::-1]
 
 
 my_solution = Solution()

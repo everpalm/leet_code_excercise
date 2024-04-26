@@ -1,9 +1,13 @@
 '''
-The sort_stack function takes a single argument, a Stack object.  The function should sort the elements in the stack in ascending order (the lowest value will be at the top of the stack) using only one additional stack. 
+The sort_stack function takes a single argument, a Stack object.  The function
+should sort the elements in the stack in ascending order (the lowest value
+will be at the top of the stack) using only one additional stack. 
 
-The function should use the pop, push, peek, and is_empty methods of the Stack object.
+The function should use the pop, push, peek, and is_empty methods of the Stack
+object.
 
-Note: This is a new function, not a method within the Stack class. So, your indent should be all the way to the LEFT.
+Note: This is a new function, not a method within the Stack class. So, your
+indent should be all the way to the LEFT.
 
 This will use the Stack class we created in these coding exercises:
 '''
@@ -12,7 +16,8 @@ class Stack:
         self.stack_list = []
 
     def print_stack(self):
-        for i in range(len(self.stack_list)-1, -1, -1):
+        # for i in range(len(self.stack_list)-1, -1, -1):
+        for i in reversed(range(len(self.stack_list))):
             print(self.stack_list[i])
 
     def is_empty(self):
@@ -37,8 +42,6 @@ class Stack:
             return self.stack_list.pop()
 
 
-
-
 ##### WRITE SORT_STACK FUNCTION HERE #####
 #                                        #
 #  This is a separate function that is   #
@@ -50,9 +53,11 @@ class Stack:
 def sort_stack(stack):
     additional_stack = Stack()
  
-    while not stack.is_empty():
+    # while not stack.is_empty():
+    while not additional_stack.stack_list:
         temp = stack.pop()
-        while not additional_stack.is_empty() and additional_stack.peek() > temp:
+        while not additional_stack.is_empty() and additional_stack.peek() \
+            > temp:
             stack.push(additional_stack.pop())
         additional_stack.push(temp)
     while not additional_stack.is_empty():

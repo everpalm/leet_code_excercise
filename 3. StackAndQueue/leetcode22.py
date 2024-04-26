@@ -4,7 +4,8 @@ Medium
 
 Topics
 Companies
-Given n pairs of parentheses, write a function to generate all combinations of well-formed parentheses.
+Given n pairs of parentheses, write a function to generate all combinations of
+well-formed parentheses.
 
  
 
@@ -25,11 +26,12 @@ Constraints:
 class Solution:
     def generateParenthesis(self, n: int) -> list:
         def backtrack(current, open_count, close_count):
-            print(f'n = {n}, current = {current}, open_count = {open_count}, close_count = {close_count}')
+            print(f'n = {n}, current = {current}, open_count = {open_count}, '
+                  f'close_count = {close_count}')
             if len(current) == 2 * n:
                 results.append(current)
+                print('abort')
                 return
-            
             if open_count < n:
                 backtrack(current + '(', open_count + 1, close_count)
             if close_count < open_count:
