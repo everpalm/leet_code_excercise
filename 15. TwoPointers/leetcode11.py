@@ -82,5 +82,5 @@ my_solution = Solution()
 height = [1,8,6,2,5,4,8,3,7]
 print(f'Result1 = {my_solution.maxArea(height)}')
 
-height = [1,1]
+height = [2,1,4]
 print(f'Result2 = {my_solution.maxArea(height)}')
