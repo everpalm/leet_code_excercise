@@ -62,16 +62,16 @@ class Solution:
         #     # print(f'complement_list = {complement_list}')
         # return []
 
-        left, right = 0, len(numbers) - 1  # 0-indexed pointers
+        index1, index2 = 0, len(numbers) - 1  # 0-indexed pointers
 
-        while left < right:
-            current_sum = numbers[left] + numbers[right]
+        while index1 < index2:
+            current_sum = numbers[index1] + numbers[index2]
             if current_sum == target:
-                return [left + 1, right + 1]  # return 1-indexed positions
+                return [index1 + 1, index2 + 1]  # return 1-indexed positions
             elif current_sum < target:
-                left += 1
+                index1 += 1
             else:
-                right -= 1
+                index2 -= 1
 
 # Example test cases (commented out)
 # print(two_sum_sorted([2, 7, 11, 15], 9))  # Output: [1, 2]
@@ -80,6 +80,11 @@ class Solution:
 
 
 my_solution = Solution()
+
+numbers = []
+target = 9
+print(f'Result0 = {my_solution.twoSum(numbers, target)}')
+
 numbers = [2,7,11,15]
 target = 9
 print(f'Result1 = {my_solution.twoSum(numbers, target)}')
@@ -90,4 +95,16 @@ print(f'Result2 = {my_solution.twoSum(numbers, target)}')
 
 numbers = [-1,0]
 target = -1
-print(f'Result3 = {my_solution.twoSum(numbers, target)}')
+print(f'Smarllest Result = {my_solution.twoSum(numbers, target)}')
+
+large_test_array = list(range(1, 3*104+1))  # Array from 1 to 3 * 104
+large_test_target = 311 + 312  # Last two elements sum
+print(f'Largest Result = {my_solution.twoSum(large_test_array, large_test_target)}')
+
+large_test_array = list(range(1, 3*52+1))  # Array from 1 to 3 * 52
+large_test_target = 155 + 156  # Last two elements sum
+print(f'Middle Result = {my_solution.twoSum(large_test_array, large_test_target)}')
+
+np_array = [-1000, -500, 500, 1000] # Array from 1 to 3 * 52
+np_target = 0  # Last two elements sum
+print(f'Negtive and Positive Result = {my_solution.twoSum(np_array, np_target)}')

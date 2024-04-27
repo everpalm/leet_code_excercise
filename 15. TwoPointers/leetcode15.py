@@ -45,7 +45,7 @@ Constraints:
 '''
 class Solution:
     def three_sum(self, nums: list) -> list:
-        nums.sort()  # Sort the list first
+        nums.sort()  # Sort the list first, O(n) = nlog(n)
         result = []
         n = len(nums)
 
@@ -56,6 +56,7 @@ class Solution:
                 continue
 
             left, right = i+1, n-1
+            print(f'left = {left}, right = {right}')
             while left < right:
                 s = nums[i] + nums[left] + nums[right]
                 if s == 0:
