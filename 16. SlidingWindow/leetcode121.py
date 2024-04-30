@@ -39,26 +39,26 @@ from typing import List
 
 class Solution:
     def maxProfit(self, prices: List[int]) -> int:
-        # left, right = 0, len(prices)-1
-        # profit = max_profit = 0
-        # while left < right:
-        #     profit = prices[right] - prices[left]
-        #     max_profit = max(max_profit, profit)
-        #     if prices[left] > prices[right]:
-        #         right -= 1
-        #     else:
-        #         left += 1
-        #     return 0 if max_profit < 0 else max_profit
-        if not prices:
-            return 0  # Return 0 if the list is empty
-        min_price = prices[0]  # Initialize min_price with the first stock price
-        max_profit = 0  # Initialize max_profit as 0
-        for price in prices:
-            # Update max_profit if selling at the current price yields a better profit
-            max_profit = max(max_profit, price - min_price)
-            # Update min_price if the current price is lower
-            min_price = min(min_price, price)
-        return max_profit
+        left, right = 0, 1
+        profit = max_profit = 0
+        while right < len(prices):
+            if prices[left] < prices[right]:
+                profit = prices[right] - prices[left]
+                max_profit = max(max_profit, profit)
+            else:
+                left = right
+            right += 1
+        return 0 if max_profit < 0 else max_profit
+        # if not prices:
+        #     return 0  # Return 0 if the list is empty
+        # min_price = prices[0]  # Initialize min_price with the first stock price
+        # max_profit = 0  # Initialize max_profit as 0
+        # for price in prices:
+        #     # Update max_profit if selling at the current price yields a better profit
+        #     max_profit = max(max_profit, price - min_price)
+        #     # Update min_price if the current price is lower
+        #     min_price = min(min_price, price)
+        # return max_profit
             
 
 my_solution = Solution()
