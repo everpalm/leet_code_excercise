@@ -63,7 +63,7 @@ class Solution:
 
 my_solution = Solution()
 s = "abcabcbb"
-print(f'Result1 = {my_solution.lengthOfLongestSubstri7ng(s)}')
+print(f'Result1 = {my_solution.lengthOfLongestSubstring(s)}')
 s = "bbbbb"
 print(f'Result2 = {my_solution.lengthOfLongestSubstring(s)}')
 s = "pwwkew"

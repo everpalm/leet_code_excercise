@@ -89,3 +89,11 @@ print(f'Result1 = {my_solution.checkInclusion(s1, s2)}')
 s1 = "ab"
 s2 = "eidboaoo"
 print(f'Result2 = {my_solution.checkInclusion(s1, s2)}')
+
+s1 = "ab"
+s2 = "ab"
+print(f'Result3 = {my_solution.checkInclusion(s1, s2)}')
+
+s1 = "eidboaoo"
+s2 = "ab"
+print(f'Result4 = {my_solution.checkInclusion(s1, s2)}')

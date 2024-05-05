@@ -37,10 +37,12 @@ Constraints:
 1 <= s.length <= 2 * 105
 s consists only of printable ASCII characters.
 '''
-import re
+# import re
 class Solution:
     def isPalindrome(self, s: str) -> bool:
+        # print(f's = {s}')
         normalized = ''.join([char.lower() for char in s if char.isalnum()])
+        # print(f'normalized = {normalized}')
         return normalized == normalized[::-1]
         # converted_string = s.lower().replace(",", "").replace(":", "").replace(" ", "")
         # converted_string = re.sub(r'[A-Z0-9]', '', s.lower().replace(" ", ""))
