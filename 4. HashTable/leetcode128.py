@@ -41,12 +41,13 @@ class Solution(object):
             if num - 1 not in num_set:
                 length = 1
                 current_num = num
-                print('current_num = ', current_num)
+                # print('current_num = ', current_num)
                 print('num = ', num)
                 # Count the length of the sequence
                 while current_num + 1 in num_set:
                     current_num += 1
                     length += 1
+                    print('length = ',length)
                 # Compare max length with current max length
                 max_length = max(max_length, length)
         return max_length   

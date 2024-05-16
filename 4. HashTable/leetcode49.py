@@ -72,6 +72,7 @@ def group_anagrams(strings):
             anagram_dict[key] = [s]
 
     # Return the values of the dictionary as a list of lists
+    # return list(anagram_dict.keys())
     return list(anagram_dict.values())
     # buffers = []
     # replicates = []
