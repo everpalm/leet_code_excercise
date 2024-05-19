@@ -47,7 +47,7 @@ class Solution(object):
         print('n = ', len(matrix[0]))
         m = len(matrix)
         n = len(matrix[0])
-        left, right = 0, m * n - 1
+        left, right = 0, m * n - 1 # Two pointers, binary search => O(log(n*m))
         while left <= right:
             print('left = ', left)
             print('right = ', right)
@@ -59,21 +59,45 @@ class Solution(object):
             if matrix[row][col] == target:
                 return True
             elif matrix[row][col] < target:
-                left = mid_index + 1
+                left = mid_index + 1 # If mid_index equals left or right,
+                # it becomes an infinite loop
             else:
                 right = mid_index - 1
         return False
     
 
 my_solution = Solution()
+# Case1: Target can be found
 matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]]
 target = 3
 print(f'Result1 = {my_solution.searchMatrix(matrix, target)}')
 
+# Case2: Target cannot be found
 matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]]
 target = 13
 print(f'Result2 = {my_solution.searchMatrix(matrix, target)}')
 
+# Case3: Target cannot be found, and the elements are equivalent
 matrix = [[1,1]]
 target = 2
 print(f'Result3 = {my_solution.searchMatrix(matrix, target)}')
+
+# Case4: Target can be found, and the elements are equivalent
+matrix = [[1,1]]
+target = 1
+print(f'Result4 = {my_solution.searchMatrix(matrix, target)}')
+
+# Case5: Target cannot be found, and it only has one element
+matrix = [[1]]
+target = 2
+print(f'Result5 = {my_solution.searchMatrix(matrix, target)}')
+
+# Case6: Target can be found, and it only has one element
+matrix = [[1]]
+target = 1
+print(f'Result6 = {my_solution.searchMatrix(matrix, target)}')
+
+# Case7: The container is empty
+matrix = [[]]
+target = 2
+print(f'Result7 = {my_solution.searchMatrix(matrix, target)}')
