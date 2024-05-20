@@ -60,11 +60,13 @@ class Solution(object):
         :type board: List[List[str]]
         :rtype: bool
         """
+        #Generate sets with "list comprehension"
         rows = [set() for _ in range(9)]
         # print('rows = ', rows)
         columns = [set() for _ in range(9)]
         boxes = [set() for _ in range(9)]
         
+        #Iterate throught the 9*9 table
         for i in range(9):
             for j in range(9):
                 num = board[i][j]
