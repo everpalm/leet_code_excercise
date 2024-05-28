@@ -51,3 +51,41 @@ class Solution:
             curr = temp
         return prev
 
+    def list_to_linkedlist(self, arr):
+        if not arr:
+            return None
+        head = ListNode(arr[0])
+        current = head
+        for value in arr[1:]:
+            current.next = ListNode(value)
+            current = current.next
+        return head
+
+    def linkedlist_to_list(self, head):
+        result = []
+        current = head
+        while current:
+            result.append(current.val)
+            current = current.next
+        return result
+
+
+my_solution = Solution()
+head = [1, 2, 3, 4, 5]
+linked_head = my_solution.list_to_linkedlist(head)
+reversed_head = my_solution.reverseList(linked_head)
+reversed_list = my_solution.linkedlist_to_list(reversed_head)
+print('Result1 = ', reversed_list)
+# print('Result1 = ', my_solution.reverseList(reversed_head))
+
+head = [1, 2]
+linked_head = my_solution.list_to_linkedlist(head)
+reversed_head = my_solution.reverseList(linked_head)
+reversed_list = my_solution.linkedlist_to_list(reversed_head)
+print('Result2 = ', reversed_list)
+
+head = []
+linked_head = my_solution.list_to_linkedlist(head)
+reversed_head = my_solution.reverseList(linked_head)
+reversed_list = my_solution.linkedlist_to_list(reversed_head)
+print('Result3 = ', reversed_list)
