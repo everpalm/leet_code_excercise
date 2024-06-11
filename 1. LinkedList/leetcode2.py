@@ -46,29 +46,6 @@ class Solution:
     def addTwoNumbers(self,
                       l1: Optional[ListNode],
                       l2: Optional[ListNode]) -> Optional[ListNode]:
-        # Reverse order
-        # prev1 = prev2 = None
-        # curr1 = l1
-        # curr2 = l2
-        # while curr1:
-        #     temp1 = curr1.next
-        #     curr1.next = prev1
-        #     prev1 = curr1
-        #     curr1 = temp1
-
-        # while curr2:
-        #     temp2 = curr2.next
-        #     curr2.next = prev2 
-        #     prev2 = curr2
-        #     curr2 = temp2
-        #     print('curr2 = ', curr2)
-    
-        # while prev1 and prev2:
-        #     sum = prev1.val + prev2.val
-        #     prev1 = prev1.next
-        #     prev2 = prev2.next
-                
-        # Get value and sum up
         dummy = ListNode()
         current = dummy
         carry = 0
