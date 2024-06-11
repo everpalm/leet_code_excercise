@@ -85,15 +85,18 @@ class Solution:
         curr = head
         while curr:
             if curr.random:
+                # print('curr.val = ', curr.val)
+                # print('curr.random.val = ', curr.random.val)
+                # print('curr.random.next.val = ', curr.random.next.val)
                 curr.next.random = curr.random.next
             curr = curr.next.next
 
         # Step 3: Separate the copied list from the original list
-        curr = head
-        new_head = curr.next
-        while curr:
-            copy = curr.next
-            curr.next = copy.next
+        curr = head # Current pointer: Start out from head
+        new_head = curr.next # New head: Memorize new head 
+        while curr: # As long as curr is not None
+            copy = curr.next # Update copy node with next node of curr
+            curr.next = copy.next # Recover original linked list
             if copy.next:
                 copy.next = copy.next.next
             curr = curr.next
