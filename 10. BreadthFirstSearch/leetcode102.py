@@ -47,24 +47,21 @@ class Solution:
         #Create a queue to store result, the first element is the root
         queue = deque([root])
         print('queue[0].val = ', queue[0].val)
-        #Iterate until the queue is empty
+        #BFS: Iterate until the queue is empty
         while queue:
             level_size = len(queue)
             print('level_size = ', level_size)
             level_nodes = []
-            #Iterate through the node levels            
+            #Iterate through the node levels(queue length)         
             for _ in range(level_size):
-                #Get the 
                 node = queue.popleft()
                 level_nodes.append(node.val)
                 print('level_nodes = ', level_nodes)
                 if node.left:
                     queue.append(node.left)
                 if node.right:
-                    queue.append(node.right)
-            
+                    queue.append(node.right)   
             result.append(level_nodes)
-        
         return result
 
 my_solution = Solution()        
