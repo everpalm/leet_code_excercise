@@ -42,6 +42,7 @@ class Solution:
         # Recursively invert the left and right subtrees
         self.invertTree(root.left)
         self.invertTree(root.right)
+        # root.left, root.right = root.right, root.left
 
         return root
 
