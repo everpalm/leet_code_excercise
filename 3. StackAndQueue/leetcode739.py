@@ -31,8 +31,11 @@ Constraints:
 1 <= temperatures.length <= 105
 30 <= temperatures[i] <= 100
 '''
+from typing import List
+
+
 class Solution:
-    def dailyTemperatures(self, temperatures: list) -> list:
+    def dailyTemperatures(self, temperatures: List) -> List:
         n = len(temperatures)
         result = [0] * n
         
