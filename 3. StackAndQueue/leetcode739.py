@@ -44,13 +44,15 @@ class Solution:
         # Iterate over the array
         for i in range(n):
             # print(f'temperatures[{i}] = {temperatures[i]}')
-            if stack: print(f'stack[-1] = {stack[-1]}')
+            if stack: print(f'\nstack[-1] = {stack[-1]}')
+            print(f'temperatures[{i}] = {temperatures[i]}')
             while stack and temperatures[i] > temperatures[stack[-1]]:
                 index = stack.pop()
+                print('index = ', index)
                 result[index] = i - index
                 # print(f'{i}th result = {result[index]}')
             stack.append(i)
-            print(f'{i}th stack = ', stack)
+            print(f'\n{i}th stack = ', stack)
         return result
     
 

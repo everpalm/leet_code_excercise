@@ -27,10 +27,8 @@ Return the number of car fleets that will arrive at the destination.
  
 
 Example 1:
-
 Input: target = 12, position = [10,8,0,5,3], speed = [2,4,1,1,3]
 Output: 3
-
 Explanation:
 The cars starting at 10 (speed 2) and 8 (speed 4) become a fleet, meeting each
 other at 12.
@@ -42,12 +40,11 @@ Note that no other cars meet these fleets before the destination, so the
 answer is 3.
 
 Example 2:
-
 Input: target = 10, position = [3], speed = [3]
 Output: 1
 Explanation: There is only one car, hence there is only one fleet.
-Example 3:
 
+Example 3:
 Input: target = 100, position = [0,2,4], speed = [4,2,1]
 Output: 1
 Explanation:
@@ -66,8 +63,11 @@ n == position.length == speed.length
 All the values of position are unique.
 0 < speed[i] <= 106
 '''
+from typing import List
+
+
 class Solution:
-    def carFleet(self, target: int, position: list, speed: list) -> int:
+    def carFleet(self, target: int, position: List, speed: List) -> int:
         # car_num = len(position)
         # car_fleet = []
         # for i in range(car_num):
