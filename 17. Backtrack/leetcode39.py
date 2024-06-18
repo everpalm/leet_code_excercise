@@ -47,6 +47,9 @@ class Solution:
             current_sum = sum(path)
             if current_sum == target:
                 result.append(path[:])
+                # If not use copy of path, when pop path the last element that sums
+                # up target will be removed
+                # result.append(path)
                 return
             if current_sum > target:
                 return
@@ -54,6 +57,17 @@ class Solution:
                 path.append(candidates[i])
                 backtrack(i, path)
                 path.pop()
+        # 如果不对 candidates 进行排序，代码仍然可以工作，但可能会进行更多不必要的计算，
+        # 因为没有利用排序来进行剪枝。这样做可能会影响性能，但结果集不会受到影响。
+        # 为什么排序？
+        # 优化和剪枝：
+        # 排序后，可以在递归过程中尽早剪枝。因为一旦当前路径的和超过目标值 target，就可以停止进一步
+        # 的搜索。
+        # 例如，如果 candidates 是有序的，一旦添加的元素使当前路径的和超过 target，我们就可以直接
+        # 返回，不必继续考虑后续的元素，因为它们只会使和更大。
+        # 避免重复计算：
+        # 排序还可以帮助避免重复计算。例如，如果 candidates 包含相同的元素或存在多种排列组合，排序
+        # 可以确保我们以统一的顺序处理它们，减少冗余。
         candidates.sort()
         backtrack(0, [])
         return result

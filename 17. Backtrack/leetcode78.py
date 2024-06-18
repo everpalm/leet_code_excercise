@@ -37,12 +37,16 @@ class Solution():
             print('start = ', start)
             print('path = ', path)
             result.append(path)
+            # result.append(path[:])
             print('result = ', result)
             for i in range(start, nums_length):
                 # 選擇nums[i]
                 print('i = ', i)
                 backtrack(i + 1, path + [nums[i]])
-                # backtrack(i + 1, path.append(nums[i]))
+                # Append method add an element in-place
+                # If I append to the path here, path in the result will change
+                # path.append(nums[i])
+                # backtrack(i + 1, path)
     
         result = []
         backtrack(0, [])
