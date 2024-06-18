@@ -45,14 +45,18 @@ class Solution:
         result = []
         def backtrack(start, path):
             current_sum = sum(path)
+            # Base case 1
             if current_sum == target:
                 result.append(path[:])
                 # If not use copy of path, when pop path the last element that sums
                 # up target will be removed
                 # result.append(path)
                 return
+            
+            # Base case 2
             if current_sum > target:
                 return
+            
             for i in range(start, len(candidates)):
                 path.append(candidates[i])
                 backtrack(i, path)
