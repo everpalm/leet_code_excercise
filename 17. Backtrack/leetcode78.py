@@ -51,11 +51,40 @@ class Solution():
         result = []
         backtrack(0, [])
         return result
+    
+    def breakdown(self, nums: List[int]) -> List[List[int]]:
+        result = [[]]
+        for num in nums:
+            result += [lst + [num] for lst in result]
+        return result
+
+    def choices(self, nums: List[int], k: int) -> List[List[int]]:
+        def backtrack(start: int, path: List[int]):
+            if len(path) == k:
+                result.append(path[:])
+                return
+            for i in range(start, len(nums)):
+                path.append(nums[i])
+                # backtrack(i + 1, path + [nums[i]])
+                backtrack(i + 1, path)
+                path.pop()
+    
+        result = []
+        backtrack(0, [])
+        return result
 
 nums = [1, 2, 3]
 solution = Solution()
-print('Result1 = ', solution.subsets(nums))
+# print('Result1 = ', solution.subsets(nums))
+# print('Result1-1 = ', solution.breakdown(nums))
+# print('Result1-2 = ', solution.choices(nums, 1))
+print('Result1-2 = ', solution.choices(nums, 2))
+# print('Result1-2 = ', solution.choices(nums, 3))
 print('\n')
 
 nums = [0]
-print('Result2 = ', solution.subsets(nums))
+# print('Result2 = ', solution.subsets(nums))
+# print('Result2-1 = ', solution.breakdown(nums))
+# print('Result2-2 = ', solution.choices(nums, 1))
+# print('Result2-2 = ', solution.choices(nums, 2))
+# print('Result2-2 = ', solution.choices(nums, 3))
