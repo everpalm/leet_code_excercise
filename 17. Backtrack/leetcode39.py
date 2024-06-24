@@ -41,15 +41,17 @@ from typing import List
 
 
 class Solution:
-    def combinationSum(self, candidates: List[int], target: int) -> List[List[int]]:
+    def combinationSum(self, candidates: List[int],
+                       target: int) -> List[List[int]]:
         result = []
         def backtrack(start, path):
             current_sum = sum(path)
             # Base case 1
             if current_sum == target:
                 result.append(path[:])
-                # If not use copy of path, when pop path the last element that sums
-                # up target will be removed
+                # If not use copy of path, when pop path the last element
+                #that sums up target will be removed (path append and pop are
+                # in the same stack)
                 # result.append(path)
                 return
             
