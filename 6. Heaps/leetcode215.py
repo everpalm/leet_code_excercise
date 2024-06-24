@@ -40,7 +40,8 @@ class Solution():
         
         # # The root of the heap is the kth largest element
         # return min_heap[0]
-        min_heap = [num for num in nums]
+        # min_heap = [num for num in nums]
+        min_heap = nums[:]
         heapq.heapify(min_heap)
         for i in range(len(min_heap) - k):
             heapq.heappop(min_heap)
