@@ -110,7 +110,7 @@ wordDictionary = WordDictionary()
 wordDictionary.addWord("bad")
 wordDictionary.addWord("dad")
 wordDictionary.addWord("mad")
-print(wordDictionary.search("pad")) # False
-print(wordDictionary.search("bad")) # True
+# print(wordDictionary.search("pad")) # False
+# print(wordDictionary.search("bad")) # True
 print(wordDictionary.search(".ad")) # True
-print(wordDictionary.search("b..")) # True
+# print(wordDictionary.search("b..")) # True
