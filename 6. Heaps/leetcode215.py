@@ -30,22 +30,26 @@ import heapq
 class Solution():
     def findKthLargest(self, nums, k):
         # Create a min-heap with the first k elements of the array
-        # min_heap = nums[:k]
-        # heapq.heapify(min_heap)
-        
-        # # Process the remaining elements
-        # for num in nums[k:]:
-        #     if num > min_heap[0]:  # Only consider elements greater than the smallest element in the heap
-        #         heapq.heapreplace(min_heap, num)
-        
-        # # The root of the heap is the kth largest element
-        # return min_heap[0]
-        # min_heap = [num for num in nums]
-        min_heap = nums[:]
+        min_heap = nums[:k]
         heapq.heapify(min_heap)
-        for i in range(len(min_heap) - k):
-            heapq.heappop(min_heap)
+        
+        # Process the remaining elements
+        for num in nums[k:]:
+            # It's more efficient to compare new element to min_heap[0]
+            # and use heapreplace instead of heappushpop
+            if num > min_heap[0]: 
+                # Only consider elements greater than the
+                #smallest element in the heap
+                heapq.heapreplace(min_heap, num)
+        
+        # The root of the heap is the kth largest element
         return min_heap[0]
+        # min_heap = [num for num in nums]
+        # min_heap = nums[:]
+        # heapq.heapify(min_heap)
+        # for i in range(len(min_heap) - k):
+        #     heapq.heappop(min_heap)
+        # return min_heap[0]
 
 # 註解及建議
 # 效率:
@@ -58,10 +62,14 @@ class Solution():
         
 solution = Solution()
 # Example usage
-nums1 = [3, 2, 1, 5, 6, 4]
-k1 = 2
-print('Result1 = ', solution.findKthLargest(nums1, k1))  # Output: 5
+# nums1 = [3, 2, 1, 5, 6, 4]
+# k1 = 2
+# print('Result1 = ', solution.findKthLargest(nums1, k1))  # Output: 5
 
-nums2 = [3, 2, 3, 1, 2, 4, 5, 5, 6]
-k2 = 4
-print('Result2 = ', solution.findKthLargest(nums2, k2))  # Output: 4
+# nums2 = [3, 2, 3, 1, 2, 4, 5, 5, 6]
+# k2 = 4
+# print('Result2 = ', solution.findKthLargest(nums2, k2))  # Output: 4
+
+nums3 = [1, 2, 3]
+k3 = 2
+print('Result2 = ', solution.findKthLargest(nums3, k3))  # Output: 4

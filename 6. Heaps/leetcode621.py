@@ -57,7 +57,7 @@ class Solution:
         # print(f'max_freq = {max_freq}')
         
         # Step 3: Find the number of tasks that have the maximum frequency
-        temp = list(task_counts.values())
+        # temp = list(task_counts.values())
 
         # print(f'list(task_counts.values()) = {temp}')
         # print(f'list(task_counts.values()).count(max_freq) = {temp.count(max_freq)}')
