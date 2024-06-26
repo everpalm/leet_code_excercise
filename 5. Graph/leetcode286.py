@@ -46,7 +46,7 @@ rooms[i][j] is -1, 0, or 231 - 1.
 from collections import deque
 
 class Solution:
-    def wallsAndGates(self, rooms):
+    def wallsAndGatesBFS(self, rooms):
         if not rooms:
             return
         
@@ -73,6 +73,33 @@ class Solution:
                     rooms[nx][ny] = rooms[x][y] + 1
                     queue.append((nx, ny))
 
+
+    def wallsAndGatesDFS(self, rooms):
+        if not rooms:
+            return
+        
+        m, n = len(rooms), len(rooms[0])
+        
+        def dfs(x, y, distance):
+            # If out of bounds or if this room is not an empty room or already has a shorter distance
+            if x < 0 or x >= m or y < 0 or y >= n or rooms[x][y] < distance:
+                return
+            # Update the distance to this room
+            rooms[x][y] = distance
+            # Recursively update neighboring rooms
+            dfs(x + 1, y, distance + 1)
+            dfs(x - 1, y, distance + 1)
+            dfs(x, y + 1, distance + 1)
+            dfs(x, y - 1, distance + 1)
+        
+        # Start DFS from each gate (0)
+        for i in range(m):
+            for j in range(n):
+                if rooms[i][j] == 0:
+                    dfs(i, j, 0)
+
+
+
 # Example usage
 rooms1 = [
     [2147483647, -1, 0, 2147483647],
@@ -82,9 +109,16 @@ rooms1 = [
 ]
 
 solution = Solution()
-solution.wallsAndGates(rooms1)
-print(rooms1)  # Output should be the modified rooms grid with distances filled
+# solution.wallsAndGatesBFS(rooms1)
+# print(rooms1)  # Output should be the modified rooms grid with distances filled
+solution.wallsAndGatesDFS(rooms1)
+print(rooms1)
+
 
 rooms2 = [[-1]]
-solution.wallsAndGates(rooms2)
-print(rooms2)  # Output should be [[-1]]
+# solution.wallsAndGatesBFS(rooms2)
+# print(rooms2)  # Output should be [[-1]]
+solution.wallsAndGatesDFS(rooms2)
+print(rooms2)
+
+
