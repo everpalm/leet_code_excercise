@@ -56,7 +56,7 @@ class Solution:
                 if grid[r][c] == 1:
                     fresh_oranges += 1
                 elif grid[r][c] == 2:
-                    rotten_oranges.append((r, c, 0))
+                    rotten_oranges.append((r, c, 0))g
 
         # DFS function to rot adjacent fresh oranges
         def dfs(x, y, minutes):
