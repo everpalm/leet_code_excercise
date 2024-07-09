@@ -73,12 +73,16 @@ class Solution:
         
         return True
     
-numCourses = 2
-prerequisites = [[1,0]]
+# numCourses = 2
+# prerequisites = [[1,0]]
 
 solution = Solution()
-print('Result1 = ', solution.canFinish(numCourses, prerequisites))
+# print('Result1 = ', solution.canFinish(numCourses, prerequisites))
 
-numCourses = 2
-prerequisites = [[1,0], [0, 1]]
-print('Result2 = ', solution.canFinish(numCourses, prerequisites))
+# numCourses = 2
+# prerequisites = [[1,0], [0, 1]]
+# print('Result2 = ', solution.canFinish(numCourses, prerequisites))
+
+numCourses = 4
+prerequisites = [[0,1], [0, 2], [1, 3], [1, 4], [3, 4]]
+print('Result3 = ', solution.canFinish(numCourses, prerequisites))

@@ -47,7 +47,7 @@ from collections import deque
 
 class Solution:
     def wallsAndGatesBFS(self, rooms):
-        if not rooms:
+        if not rooms or not rooms[0]:
             return
         
         m, n = len(rooms), len(rooms[0])
@@ -73,7 +73,6 @@ class Solution:
                     rooms[nx][ny] = rooms[x][y] + 1
                     queue.append((nx, ny))
 
-rr
     def wallsAndGatesDFS(self, rooms):
         if not rooms:
             return
@@ -109,16 +108,16 @@ rooms1 = [
 ]
 
 solution = Solution()
-# solution.wallsAndGatesBFS(rooms1)
-# print(rooms1)  # Output should be the modified rooms grid with distances filled
-solution.wallsAndGatesDFS(rooms1)
-print(rooms1)
+solution.wallsAndGatesBFS(rooms1)
+print(rooms1)  # Output should be the modified rooms grid with distances filled
+# solution.wallsAndGatesDFS(rooms1)
+# print(rooms1)
 
 
-rooms2 = [[-1]]
+# rooms2 = [[-1]]
 # solution.wallsAndGatesBFS(rooms2)
 # print(rooms2)  # Output should be [[-1]]
-solution.wallsAndGatesDFS(rooms2)
-print(rooms2)
+# solution.wallsAndGatesDFS(rooms2)
+# print(rooms2)
 
 
