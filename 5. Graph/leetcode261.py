@@ -21,12 +21,16 @@ Note: you can assume that no duplicate edges will appear in edges. Since all
 edges are undirected,[0,1] is the same as [1,0] and thus will not appear
 together in edges.
 '''
+from collections import defaultdict
+
+
 class Solution:
     def valid_tree(self, n, edges):
         if not n:
             return True
         
-        adj = {i:[] for i in range(n)}
+        # adj = {i:[] for i in range(n)}
+        adj = defaultdict(list)
         for n1, n2 in edges:
             adj[n1].append(n2) 
             adj[n2].append(n1)
@@ -46,9 +50,9 @@ class Solution:
         return dfs(0, -1) and n == len(visit)
             
 solution = Solution()
-# n = 5
-# edges = [[0,1], [0,2], [0,3], [1,4]]
-# print('Result1 = ', solution.valid_tree(n, edges))
+n = 5
+edges = [[0,1], [0,2], [0,3], [1,4]]
+print('Result1 = ', solution.valid_tree(n, edges))
 
 n = 5
 edges = [[0,1], [1,2], [2,3], [1,3], [1,4]]
