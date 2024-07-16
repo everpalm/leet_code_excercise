@@ -60,7 +60,7 @@ class Solution:
         queue = deque([i for i in range(numCourses) if in_degree[i] == 0])
         order = []
         
-        while queue:
+        while queue: 
             course = queue.popleft()
             order.append(course)
             

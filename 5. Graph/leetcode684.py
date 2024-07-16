@@ -39,11 +39,11 @@ from typing import List
 
 class UnionFind:
     def __init__(self, size):
-        self.parent = list(range(size))
-        self.rank = [1] * size
+        self.parent = list(range(size)) # size = 3, self.parent = [0, 1, 2, 3]
+        self.rank = [1] * size # self.rank = [1, 1, 1, 1]
 
     def find(self, u):
-        if u != self.parent[u]:
+        if u != self.parent[u]: # u = 1, self.parent[1] = 1
             self.parent[u] = self.find(self.parent[u])  # 路径压缩
         return self.parent[u]
 
