@@ -51,13 +51,13 @@ class Solution:
             if n == 1:
                 return nums[0]
             
-            prev2, prev1 = 0, nums[0]
+            prev1, prev2 = 0, nums[0]
             
             for i in range(1, n):
-                current = max(prev1, prev2 + nums[i])
-                prev2 = prev1
-                prev1 = current
-            return prev1
+                current = max(prev2, prev1 + nums[i])
+                prev1 = prev2
+                prev2 = current
+            return prev2
         
         return max(rob_linear(nums[1:]), rob_linear(nums[:-1]))
 
