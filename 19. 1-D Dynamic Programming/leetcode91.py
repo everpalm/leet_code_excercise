@@ -68,6 +68,7 @@ class Solution:
         for i in range(2, n + 1):
             # Check the last single digit
             if 1 <= int(s[i-1:i]) <= 9:
+                # print(f's[i-1:i] = {s[i-1:i]}')
                 dp[i] += dp[i-1]
             
             # Check the last two digits
@@ -75,6 +76,30 @@ class Solution:
                 dp[i] += dp[i-2]
         
         return dp[n]
+    
+    def numDecodings2(self, s: str) -> int:
+        if not s or s[0] == '0':
+            return 0
+        
+        # Two variables to hold the previous two results
+        prev2 = 1  # dp[i-2]
+        prev1 = 1 if s[0] != '0' else 0  # dp[i-1]
+        
+        for i in range(2, len(s) + 1):
+            current = 0
+            
+            # Check the last single digit
+            if 1 <= int(s[i-1:i]) <= 9:
+                current += prev1
+            
+            # Check the last two digits
+            if 10 <= int(s[i-2:i]) <= 26:
+                current += prev2
+            
+            # Update the previous two results
+            prev2, prev1 = prev1, current
+        
+        return prev1
 
 # Example usage:
 solution = Solution()
