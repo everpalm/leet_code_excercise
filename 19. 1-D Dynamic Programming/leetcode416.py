@@ -44,4 +44,4 @@ nums1 = [1, 5, 11, 5]
 nums2 = [1, 2, 3, 5]
 
 print(canPartition(nums1))  # Output: True
-print(canPartition(nums2))  # Output: False
+# print(canPartition(nums2))  # Output: False
