@@ -72,13 +72,33 @@ class Solution:
             return start
         else:
             return -1
+        
+    def BrouteForce(self, gas, cost):
+        n = len(gas)
+        
+        # 检查从每个站点出发是否可以完成环路
+        for start in range(n):
+            tank = 0
+            success = True
+            for i in range(n):
+                j = (start + i) % n  # 环路中的当前站点索引
+                tank += gas[j] - cost[j]
+                if tank < 0:
+                    success = False
+                    break
+            if success:
+                return start
+        
+        return -1  # 如果没有任何一个站点可以完成环路，则返回 -1
 
 # Example usage:
 sol = Solution()
 gas = [1, 2, 3, 4, 5]
 cost = [3, 4, 5, 1, 2]
 print(sol.canCompleteCircuit(gas, cost))  # Output: 3
+print(sol.BrouteForce(gas, cost))  # Output: 3
 
 gas = [2, 3, 4]
 cost = [3, 4, 3]
 print(sol.canCompleteCircuit(gas, cost))  # Output: -1
+print(sol.BrouteForce(gas, cost))  # Output: 3
