@@ -55,15 +55,28 @@ class Solution:
         # Return the maximum subarray sum
         return max_sum
     
+    def boute_force(self, nums: List[int]) -> int:
+        current_sum = max_sum = 0
+        for i in range(len(nums)):
+            current_sum = 0
+            for j in range(i, len(nums)):
+                current_sum += nums[j]
+                if current_sum > max_sum:
+                    max_sum = current_sum
+        return max_sum
+    
 
 solution = Solution()
 nums = [-2,1,-3,4,-1,2,1,-5,4]
 print("Result1 = ", solution.maxSubArray(nums))
+print("Result1-1 = ", solution.boute_force(nums))
 
 nums = [1]
 print("Result2 = ", solution.maxSubArray(nums))
+print("Result2-1 = ", solution.boute_force(nums))
 
 nums = [5,4,-1,7,8]
 print("Result3 = ", solution.maxSubArray(nums))
+print("Result3-1 = ", solution.boute_force(nums))
 
 
