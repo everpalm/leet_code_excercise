@@ -47,6 +47,38 @@ class Solution:
                     del count[i]
         
         return True
+    
+    def BrouteForce(self, hand, groupSize):
+        if len(hand) % groupSize != 0:
+            return False
+        
+        hand.sort()  # 將手牌排序
+        while hand:
+            first = hand[0]
+            for i in range(groupSize):
+                if first + i in hand:
+                    hand.remove(first + i)
+                else:
+                    return False
+        return True
+    
+    def isNStraightHand1(self, hand, groupSize):
+        if len(hand) % groupSize != 0:
+                return False
+            
+        count = Counter(hand)
+        
+        for key in sorted(count):
+            while count[key] > 0:
+                for i in range(groupSize):
+                    if count[key + i] > 0:
+                        count[key + i] -= 1
+                        if count[key + i] == 0:
+                            del count[key + i]
+                    else:
+                        return False
+        
+        return True
 
 # Example usage:
 solution = Solution()
@@ -54,7 +86,9 @@ solution = Solution()
 hand1 = [1, 2, 3, 6, 2, 3, 4, 7, 8]
 groupSize1 = 3
 print(solution.isNStraightHand(hand1, groupSize1))  # Output: True
+print(solution.BrouteForce(hand1, groupSize1))  # Output: True
 
 hand2 = [1, 2, 3, 4, 5]
 groupSize2 = 4
 print(solution.isNStraightHand(hand2, groupSize2))  # Output: False
+print(solution.BrouteForce(hand2, groupSize2))  # Output: True
