@@ -73,16 +73,30 @@ class Solution:
                     found_z = True
         
         return found_x and found_y and found_z
+    
+    def my_solution(self, triplets: List[List[int]], target: List[int]) -> bool:
         # temp0 = triplets[0][0]
         # temp1 = triplets[0][1]
         # temp2 = triplets[0][2] 
+        temp0, temp1, temp2 = target
+        foundx, foundy, foundz = False, False, False
         # for i in range (1, len(triplets)):
-        # # check if Max(triplets[0] = target[0])
-        #     temp0 = max(temp0, triplets[i][0])
-        #     temp1 = max(temp1, triplets[i][1])
-        #     temp2 = max(temp2, triplets[i][2])
-        #     if [temp0, temp1, temp2] == target:
-        #         return True
+        for triplet in triplets:
+            a, b, c = triplet
+        # check if Max(triplets[0] = target[0])
+            if a <= temp0 and b <= temp1 and c <= temp2:
+            # temp0 = max(temp0, a)
+            # temp1 = max(temp1, b)
+            # temp2 = max(temp2, c)
+            # if [temp0, temp1, temp2] == target:
+                # return True
+                if a == temp0:
+                    foundx = True
+                if b == temp1:
+                    foundy = True
+                if c == temp2:
+                    foundz = True
+        return foundx and foundy and foundz
         # return False 
 
 
@@ -90,11 +104,14 @@ sol = Solution()
 triplets = [[2,5,3],[1,8,4],[1,7,5]]
 target = [2,7,5]
 print('Result1 = ', sol.mergeTriplets(triplets,target))
+print('Result1-1 = ', sol.my_solution(triplets,target))
 
 triplets = [[3,4,5],[4,5,6]]
 target = [3,2,5]
 print('Result2 = ', sol.mergeTriplets(triplets,target))
+print('Result2-1 = ', sol.my_solution(triplets,target))
 
 triplets = [[2,5,3],[2,3,4],[1,2,5],[5,2,3]]
 arget = [5,5,5]
 print('Result3 = ', sol.mergeTriplets(triplets,target))
+print('Result3-1 = ', sol.my_solution(triplets,target))
