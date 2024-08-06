@@ -56,6 +56,32 @@ class Solution:
                 start = idx + 1
         
         return partitions
+    
+    def partitionLabels1(self, s: str):
+        # Step 1: Find the last occurrence of each character
+        last_occurrence = {}
+        for i in range(len(s)):
+            char = s[i]
+            last_occurrence[char] = i
+        
+        # Step 2: Iterate through the string to determine the partitions
+        partitions = []
+        start = 0
+        end = 0
+        
+        for i in range(len(s)):
+            char = s[i]
+            # Update the end pointer to the farthest last occurrence of the current character
+            end = max(end, last_occurrence[char])
+            
+            # If the current index matches the end pointer, we found a partition
+            if i == end:
+                # The size of the current partition is end - start + 1
+                partitions.append(end - start + 1)
+                # Move the start pointer to the next index after the current partition
+                start = i + 1
+        
+        return partitions
 
 # Example usage:
 solution = Solution()

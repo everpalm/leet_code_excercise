@@ -73,7 +73,7 @@ class Solution:
         else:
             return -1
         
-    def BrouteForce(self, gas, cost):
+    def BruteForce(self, gas, cost):
         n = len(gas)
         
         # 检查从每个站点出发是否可以完成环路
