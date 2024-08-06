@@ -48,7 +48,7 @@ class Solution:
         
         return True
     
-    def BrouteForce(self, hand, groupSize):
+    def BruteForce(self, hand, groupSize):
         if len(hand) % groupSize != 0:
             return False
         

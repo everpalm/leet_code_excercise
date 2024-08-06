@@ -55,7 +55,7 @@ class Solution:
         # Return the maximum subarray sum
         return max_sum
     
-    def boute_force(self, nums: List[int]) -> int:
+    def brute_force(self, nums: List[int]) -> int:
         current_sum = max_sum = 0
         for i in range(len(nums)):
             current_sum = 0
