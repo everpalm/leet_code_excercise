@@ -56,12 +56,39 @@ class Solution:
         
         return open_min == 0
 
+    def brute_force(self, s: str) -> bool:
+        def is_valid(s):
+            balance = 0
+            for char in s:
+                if char == '(':
+                    balance += 1
+                elif char == ')':
+                    balance -= 1
+                if balance < 0:
+                    return False
+            return balance == 0
+
+        def backtrack(s, index):
+            if index == len(s):
+                return is_valid(s)
+            if s[index] == '*':
+                # Try replacing '*' with '(', ')', and ''
+                return (backtrack(s[:index] + '(' + s[index+1:], index + 1) or
+                        backtrack(s[:index] + ')' + s[index+1:], index + 1) or
+                        backtrack(s[:index] + '' + s[index+1:], index))
+            else:
+                return backtrack(s, index + 1)
+
+        return backtrack(s, 0)
+    
 # Example usage
 sol = Solution()
-print(sol.checkValidString("()"))    # Output: True
-print(sol.checkValidString("(*)"))   # Output: True
-print(sol.checkValidString("(*))"))  # Output: True
-print(sol.checkValidString(""))  # Output: True
-print(sol.checkValidString("("))  # Output: False
-print(sol.checkValidString(")"))  # Output: False
-print(sol.checkValidString("*"))  # Output: True
+# print(sol.checkValidString("()"))    # Output: True
+# print(sol.checkValidString("(*)"))   # Output: True
+# print(sol.checkValidString("(*))"))  # Output: True
+# print(sol.checkValidString(""))  # Output: True
+# print(sol.checkValidString("("))  # Output: False
+# print(sol.checkValidString(")"))  # Output: False
+# print(sol.checkValidString("*"))  # Output: True
+# print(sol.checkValidString("(**"))  # Output: True
+print(sol.brute_force("*"))
