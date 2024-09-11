@@ -60,11 +60,14 @@ class Solution:
             current.next = ListNode(total % 10)
             
             # Move to the next elements
-            current = current.next
+            self.new_method(current)
             if l1: l1 = l1.next
             if l2: l2 = l2.next
         
         return dummy.next
+
+    def new_method(self, current):
+        current = current.next
 
     # Helper function to create linked list from a list
     def create_linked_list(self, lst):

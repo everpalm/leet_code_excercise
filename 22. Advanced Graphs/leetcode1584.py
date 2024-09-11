@@ -97,6 +97,7 @@ class Solution:
         
         # Union-Find (Disjoint Set) to detect cycles and manage connected components
         parent = list(range(n))
+        # print(f'parent = {parent}')
         rank = [1] * n
         
         def find(x):
