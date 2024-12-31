@@ -1,0 +1,259 @@
+<html>
+    <head>
+        <title>Headings</title>
+        <link rel="stylesheet" href="style.css">
+        <style>
+        ul {
+            list-style-type: none;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            background-color: red; 
+        }
+        
+        li {
+            float: left;
+        }
+        
+        li a {
+            /* display: block; */
+            color: white;
+            text-align: center;
+            padding: 16px;
+            text-decoration: none;
+            text-align: center;
+        }
+        
+        li a:hover {
+            background-color: white;
+            color: black;
+        }
+
+        .Starwar {
+            color: brown;
+            padding: 10px;
+            text-decoration: dashed;
+            margin: 20px;
+        }
+
+        .Vintage {
+            color: greenyellow;
+            padding: 9px;
+            text-decoration: dotted;
+            border: 5px solid blue;
+        }
+
+        .remix {
+            color: purple;
+            padding: 12px;
+            text-decoration: antiquewhite;
+        }
+
+        #prostitute {
+            color: red;
+            padding: 15px;
+            text-decoration: cadetblue;
+        }
+
+        </style>
+        <meta charset="UTF-8">
+        <meta name="description" content="This is a test page">
+        <meta name="keywords" content="dogs, cats"
+
+    </head>
+    <body>
+        <audio controls>
+            <source src="/Users/Jaron/Downloads/散步歌 (320 kbps).mp3" type="audio/mpeg">
+            Your browser does not support this kind of media
+        </audio><br>
+
+        <video height="330" width="440" controls>
+            <source src="/Users/Jaron/Desktop/婚紗照MV-1-1.mpg" type="video/mpeg">
+            Your browser does not support this kind of media
+        </video>
+
+        &lt;&lt;
+        &#60;
+        &gt;
+        &amp;
+        &pound;
+        &euro;
+        &copy;
+
+        <button onclick="my_function()">
+            Trigger My Ass
+        </button>
+
+        <script>
+            function my_function() {
+                alert('hello from java script');
+            }
+        </script>
+        <p id="prostitute">This is a classed paragraph</p><br>
+
+        <div class="Starwar">
+            <h3>Sedan</h3>
+            <p>test</p>
+        </div>
+        
+        <div class="Vintage">
+            <h3>Coupe</h3>
+            <p>yours</p>
+        </div>
+
+        <div class="remix"">
+            <h3>Truck</h3>
+            <p>his</p>
+        </div>
+
+        <div style="background-color: red;">
+            <h1>Headline?</h1>
+            <p style="border: 1px solid black;">This is a paragraph</p>
+            <a href="#">
+                link
+            </a>
+        </div>
+
+        <div>
+            <a href="#">
+                my <span style="color: green ;">second</span>link
+            </a>
+
+            <b>
+                what's wrong
+            </b>
+        </div>
+
+        <form action="" method="GET">
+            <label for="your_file">Upload</label><br>
+            <input type="file" id="your_file" value="your_file"><br>
+
+            <label for="role">Choose your role</label><br>
+             
+            <label for="manager">Manager</label>
+            <input type="checkbox" id="manager" value="MANAGER" name="role"><br>
+
+            <label for="engineer">Engineer</label>
+            <input type="checkbox" id="engineer" value="ENGINEER" name="role"><br>
+
+            <label for="specialist">Specialist</label>
+            <input type="checkbox" id="specialist" value="SPECIALIST" name="role"><br>
+
+            <label for="animal">Choose your animal</label><br>
+             
+            <label for="dog">Dog</label>
+            <input type="radio" id="dog" value="DOG" name="animal"><br>
+
+            <label for="cat">Cat</label>
+            <input type="radio" id="cat" value="CAT" name="animal"><br>
+
+            <label for="pig">Pig</label>
+            <input type="radio" id="pig" value="PIG" name="animal"><br>
+
+            <label for="password">password</label>
+            <input type="password" id="password" value="god995"><br>
+
+            <label for="wtf">wtf</label>
+            <input type="button" id="submit" value="Submit"><br>
+
+            <button name="submit" onclick="alert('Fuck!')">Submit</button><br>
+
+            <textarea cols="40" rows="20" name="not my fault">
+                what can you do about it?
+            </textarea><br>
+            <label for="Select">Choose Gender</label>
+            <select name="Choose Gender">
+                <option value="Male">male</option>
+                <option value="Female">female</option>
+                <option value="Other">other</option>
+            </select><br>
+
+            <label for="Name">Name</label>
+            <!-- br means "break" -->
+            <input type="text" name="name" value="Jesus"><br>
+
+            <label for="email">Email</label>
+            <input type="text" name="email" value="god@heaven.org"><br>
+
+            <label for="password">password</label>
+            <input type="password" name="password" value="god995"><br>
+
+            <label for="wtf">wtf</label>
+            <input type="button" name="submit" value="Submit"><br>
+        </form>
+        What if I type anything else here?
+        <style>
+            h2 {
+                color: red;
+                background-color: yellow;
+            }
+        </style>
+        <br>
+        <!-- style, ol, ul, table, p, a -->
+        <!-- ol means ordered list -->
+        <ol type="i">
+            <li>Jaron</li><br>
+            <li>Anny</li><br>
+            <li>Brandon</li><br>
+        </ol><br>
+
+        <!-- ul means un-ordered list -->
+        <!-- li means list item -->
+        <ul style="list-style-type: circle;">
+            <li>Jaron</li><br>
+            <li>Anny</li><br>
+            <li>Brandon</li><br>
+        </ul><br>
+
+        <ul>
+            <!-- a means "anchor" for a link-->
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul><br>
+
+        <table style="width: 25%;">
+            <!-- tr means "table row" -->
+            <tr>
+                <!-- th means table header -->
+                <th>Name</th>
+                <th>Age</th>
+                <th>Gender</th>
+            </tr>
+            <tr>
+                <!-- td means "table data" -->
+                <td>Jaron</td>
+                <td>25</td>
+                <td>Male</td>
+            </tr>
+            <tr></tr>
+                <td>Anny</td>
+                <td>24</td>
+                <td>Female</td>
+            </tr>
+        </table>
+
+        <a href="https://www.linkedin.com/in/jaroncheng/" target="_blank" title="This is my normal link"> My LinkedIn</a>
+        <p><b>This is bold</b></p>
+        <p style="color: green;"><i>This is italic</i></p>
+        <p><u>This is underline</u></p>
+        <p><mark>This is mark</mark></p>
+        <!--<p><small>This is small</small></p>-->
+        <p><del>This is del</del></p>
+        <p><ins>This is ins</ins></p>
+        <p><sub>This is sub</sub></p>
+        <p><sup>This is sup</sup></p>
+        <h1>this is h1 hello </h1>
+        <h2 style="font-size: 25px;">this is h2</h2>
+        <h3 style="background-color: green;">this is h3</h3>
+        <hr>
+        <p style="color: blue;font-size: 25px;"> <br>This is a paragraph
+            <br>don't know why
+            <!-- hr stands for "horizontal rule" -->
+            <hr>
+            <br>new line
+        </p>
+        <a href="22. Advanced Graphs/leetcode1584.py">Solution</a>
+        <img src="test_html.png" alt="My Image" style="width: 50%; height: auto;">
+    </body>
+</html>
