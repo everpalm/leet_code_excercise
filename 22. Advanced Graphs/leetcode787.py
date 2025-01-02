@@ -125,7 +125,7 @@ class Solution:
             node, cost, stops = queue.popleft()
             
             if node == dst:
-                min_cost = min(min_cost, cost)a
+                min_cost = min(min_cost, cost)
             
             if stops > 0:
                 for neighbor, price in graph[node]:
