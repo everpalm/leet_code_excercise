@@ -1,5 +1,8 @@
 .DS_Store
 .DS_Store
+<<<<<<< HEAD
 .vscode/
 .pytest_cache/
 __pycache__/
+=======
+>>>>>>> ba89f9d (CLI-87-Longest-Common-Subsequence)
