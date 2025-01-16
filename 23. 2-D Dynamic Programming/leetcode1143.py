@@ -36,6 +36,7 @@ Explanation: There is no such common subsequence, so the result is 0.
 Constraints:
 1 <= text1.length, text2.length <= 1000
 text1 and text2 consist of only lowercase English characters.
+<<<<<<< HEAD
 
 text1 = abc
 text2 = aac
@@ -56,6 +57,8 @@ i = 2, j = 1
 text1[2] = c
 text2[1] = a 
 
+=======
+>>>>>>> ba89f9d (CLI-87-Longest-Common-Subsequence)
 '''
 class Solution:
     def dynamic_programming(self, text1: str, text2: str) -> int:
