@@ -51,8 +51,29 @@ class Solution:
                 return max(buy, skip)
 
         return dfs(0, False)  # 從第 0 天開始，不持有股票
+    
+    def dynamic_programming(self, prices: List[int]) -> int:
+        if not prices:
+            return 0
+
+        n = len(prices)
+        hold = -prices[0]  # 第一天持有股票的利潤
+        sold = 0           # 第一天賣出股票的利潤
+        cooldown = 0       # 第一天冷卻狀態的利潤
+
+        for i in range(1, n):
+            prev_sold = sold  # 保存前一天的賣出利潤
+            sold = hold + prices[i]  # 賣出股票
+            hold = max(hold, cooldown - prices[i])  # 持有股票
+            cooldown = max(cooldown, prev_sold)  # 冷卻狀態
+
+        return max(sold, cooldown)  # 返回最大利潤
+
 
 # 測試
 solution = Solution()
 print(solution.brute_force([1, 2, 3, 0, 2]))  # 輸出: 3
 print(solution.brute_force([1]))               # 輸出: 0
+
+print(solution.dynamic_programming([1, 2, 3, 0, 2]))  # 輸出: 3
+print(solution.dynamic_programming([1]))               # 輸出: 0
