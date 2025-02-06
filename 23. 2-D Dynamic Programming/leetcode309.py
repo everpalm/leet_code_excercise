@@ -79,3 +79,6 @@ class Solution:
 solution = Solution()
 print(solution.brute_force([1, 2, 3, 0, 2]))  # 輸出: 3
 print(solution.brute_force([1]))               # 輸出: 0
+
+print(solution.dynamic_programming([1, 2, 3, 0, 2]))  # 輸出: 3
+print(solution.dynamic_programming([1]))               # 輸出: 0
