@@ -35,7 +35,6 @@ from typing import List
 class Solution:
     def brute_force(self, prices: List[int]) -> int:
         def dfs(day: int, hasStock: bool):
-
         # 基礎情況：如果超過價格數組的長度
             if day >= len(prices):
                 return 0
@@ -73,12 +72,42 @@ class Solution:
             print('cooldown = ', cooldown)
 
         return max(sold, cooldown)  # 返回最大利潤
+    
+    from typing import List
+
+    def dynamic_programming1(self, prices: List[int]) -> int:
+        if not prices:
+            return 0
+
+        n = len(prices)
+        
+        # 初始化三個狀態的數組
+        hold = [0] * n
+        sold = [0] * n
+        cooldown = [0] * n
+
+        hold[0] = -prices[0]  # 第一天持有股票的利潤
+        sold[0] = 0           # 第一天賣出股票的利潤
+        cooldown[0] = 0       # 第一天冷卻狀態的利潤
+
+        for i in range(1, n):
+            hold[i] = max(hold[i - 1], cooldown[i - 1] - prices[i])  # 持有股票
+            sold[i] = hold[i - 1] + prices[i]  # 賣出股票
+            cooldown[i] = max(cooldown[i - 1], sold[i - 1])  # 冷卻狀態
+            print('hold = ', hold)
+            print('sold = ', sold)
+            print('cooldown = ', cooldown)
+
+        return max(sold[n - 1], cooldown[n - 1])  # 返回最大利潤
 
 
 # 測試
 solution = Solution()
-print(solution.brute_force([1, 2, 3, 0, 2]))  # 輸出: 3
-print(solution.brute_force([1]))               # 輸出: 0
+# print(solution.brute_force([1, 2, 3, 0, 2]))  # 輸出: 3
+# print(solution.brute_force([1]))               # 輸出: 0
 
-print(solution.dynamic_programming([1, 2, 3, 0, 2]))  # 輸出: 3
-print(solution.dynamic_programming([1]))               # 輸出: 0
+# print(solution.dynamic_programming([1, 2, 3, 0, 2]))  # 輸出: 3
+# print(solution.dynamic_programming([1]))               # 輸出: 0
+
+print(solution.dynamic_programming1([1, 2, 3, 0, 2]))  # 輸出: 3
+print(solution.dynamic_programming1([1]))               # 輸出: 0
