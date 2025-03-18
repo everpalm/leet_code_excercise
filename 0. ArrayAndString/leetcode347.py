@@ -10,17 +10,15 @@ elements. You may return the answer in any order.
  
 
 Example 1:
-
 Input: nums = [1,1,1,2,2,3], k = 2
 Output: [1,2]
-Example 2:
 
+Example 2:
 Input: nums = [1], k = 1
 Output: [1]
  
 
 Constraints:
-
 1 <= nums.length <= 105
 -104 <= nums[i] <= 104
 k is in the range [1, the number of unique elements in the array].
@@ -46,11 +44,12 @@ class Solution(object):
             count = my_hash.get(num, 0)
             my_hash[num] = count + 1
         print('my_hash = ', my_hash)
-        output = []
-        for key, value in my_hash.items():
-            if value >= k:
-                output.append(key)
-        return output
+        # output = []
+        # for key, value in my_hash.items():
+        #     if value >= k:
+        #         output.append(key)
+        output = sorted(my_hash.items(), key=lambda item: item[1], reverse=True)
+        return [num for num, _ in output[:k]]
         # count = Counter(nums)
     
         # Create a min-heap for the top k frequent elements
@@ -68,4 +67,8 @@ class Solution(object):
 my_solution = Solution()
 nums = [1, 1, 1, 2, 2, 3]
 k = 2
-print('result = ', my_solution.topKFrequent(nums, 2))
+print('result1 = ', my_solution.topKFrequent(nums, k))
+
+nums = [1]
+k = 1
+print('result2 = ', my_solution.topKFrequent(nums, k))
