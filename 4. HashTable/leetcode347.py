@@ -29,7 +29,7 @@ Follow up: Your algorithm's time complexity must be better than O(n log n),
 where n is the array's size.
 '''
 # import heapq
-# from collections import Counter
+from collections import Counter
 
 class Solution(object):
     def topKFrequent(self, nums, k):
@@ -38,18 +38,23 @@ class Solution(object):
         :type k: int
         :rtype: List[int]
         """
-        my_hash = {}
-        count = 0
-        for num in nums:
-            count = my_hash.get(num, 0)
-            my_hash[num] = count + 1
-        print('my_hash = ', my_hash)
-        # output = []
-        # for key, value in my_hash.items():
-        #     if value >= k:
+        # my_hash = {}
+        # count = 0
+        # for num in nums:
+        #     count = my_hash.get(num, 0)
+        #     my_hash[num] = count + 1
+        # print('my_hash = ', my_hash)
+
+        my_hash = Counter(nums)
+        output = []
+        for key, value in my_hash.items():
+            # if value >= k:
         #         output.append(key)
-        output = sorted(my_hash.items(), key=lambda item: item[1], reverse=True)
-        return [num for num, _ in output[:k]]
+        # output = sorted(my_hash.items(), key=lambda item: item[1], reverse=True)
+        # return [num for num, _ in output[:k]]
+            output.append((value, key))
+        output.sort(reverse=True)
+        return [key for _, key in output[:k]]
         # count = Counter(nums)
     
         # Create a min-heap for the top k frequent elements
