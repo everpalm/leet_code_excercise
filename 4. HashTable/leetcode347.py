@@ -45,7 +45,6 @@ class Solution(object):
             output.append((freq, num))
         output.sort(reverse=True)
         return [num for _, num in output[:k]]
-
     
     def min_heap(self, nums, k):
         # Create a min-heap for the top k frequent elements
