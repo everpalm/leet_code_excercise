@@ -61,7 +61,7 @@ class Solution(object):
         
         # Extract the elements from the heap
         top_k = [heapq.heappop(heap)[1] for _ in range(len(heap))]
-        # print('top_k = ', top_k)
+        print('top_k = ', top_k)
         return top_k[::-1]  # Return in any order
 
         

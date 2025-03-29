@@ -36,6 +36,25 @@ Explanation: There is no such common subsequence, so the result is 0.
 Constraints:
 1 <= text1.length, text2.length <= 1000
 text1 and text2 consist of only lowercase English characters.
+
+text1 = abc
+text2 = aac
+
+i = 0, j = 0
+text1[0] = a
+text2[0] = a
+
+i = 1, j = 1
+text1[1] = b
+text2[1] = a
+
+i = 1, j = 2
+text1[1] = b
+text2[2] = c
+
+i = 2, j = 1
+text1[2] = c
+text2[1] = a 
 '''
 class Solution:
     def dynamic_programming(self, text1: str, text2: str) -> int:

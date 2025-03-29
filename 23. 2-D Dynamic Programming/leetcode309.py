@@ -34,7 +34,8 @@ from typing import List
 
 class Solution:
     def brute_force(self, prices: List[int]) -> int:
-        def dfs(day, hasStock):
+        def dfs(day: int, hasStock: bool):
+
         # 基礎情況：如果超過價格數組的長度
             if day >= len(prices):
                 return 0
@@ -63,9 +64,13 @@ class Solution:
 
         for i in range(1, n):
             prev_sold = sold  # 保存前一天的賣出利潤
+            print('prev_sold = ', prev_sold)
             sold = hold + prices[i]  # 賣出股票
+            print('sold = ', sold)
             hold = max(hold, cooldown - prices[i])  # 持有股票
+            print('hold = ', hold)
             cooldown = max(cooldown, prev_sold)  # 冷卻狀態
+            print('cooldown = ', cooldown)
 
         return max(sold, cooldown)  # 返回最大利潤
 
