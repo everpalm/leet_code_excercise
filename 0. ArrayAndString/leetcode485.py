@@ -49,6 +49,17 @@ class Solution(object):
         max_count = max(max_count, current_count)
         
         return max_count
+    
+    def enumerateFindMaxConsecutiveOnes(self, nums):
+        max_count = 0
+        count = 0
+
+        for i, num in enumerate(nums):
+            count = count + 1 if num == 1 else 0
+            max_count = max(max_count, count)
+
+        return max_count
+
 
 
 my_instance = Solution()
@@ -56,3 +67,18 @@ print('test = ', my_instance.findMaxConsecutiveOnes([1, 1, 0, 1, 1, 1]))
 print('test = ', my_instance.findMaxConsecutiveOnes([0, 0, 0, 0, 0, 0]))
 print('test = ', my_instance.findMaxConsecutiveOnes([1, 1, 1, 1, 1, 1]))
 print('test = ', my_instance.findMaxConsecutiveOnes([]))
+
+
+'''
+Example 3:
+
+    Input: nums = [1 1 1 1 1 1]
+    Output: 6
+
+    
+Example 4:
+
+    Input: nums = [0 0 0 0]
+    Output: 0
+
+'''
