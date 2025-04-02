@@ -33,17 +33,17 @@ class Solution:
         
         prefix = strs[0]
 
-        for j in range(1, len(strs)):
+        for i in range(1, len(strs)):
             count = 0    
-            length = min(len(strs[j]), len(prefix))
+            length = min(len(strs[i]), len(prefix))
 
-            for i in range(length):
-                if strs[j][i] == prefix[i]:
+            for j in range(length):
+                if strs[i][j] == prefix[j]:
                     count += 1
                 else:
                     break
 
-            prefix = strs[j][:count]
+            prefix = strs[i][:count]
 
             if prefix == "":
                 break
