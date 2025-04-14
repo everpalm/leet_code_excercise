@@ -27,23 +27,37 @@ strs[i] consists of only lowercase English letters if it is non-empty.
 from typing import List
 
 class Solution:
+    def startWithPrefix(self, strs: List[str]) -> str:
+        if not strs:
+            return ""
+        
+        prefix = strs[0]
+        
+        for s in strs[1:]:
+            while not s.startswith(prefix):
+                prefix = prefix[:-1]
+                if not prefix:
+                    return ""
+        
+        return prefix
+
     def longestCommonPrefix(self, strs: List[str]) -> str:
         if not strs:
             return ""
         
         prefix = strs[0]
 
-        for j in range(1, len(strs)):
+        for i in range(1, len(strs)):
             count = 0    
-            length = min(len(strs[j]), len(prefix))
+            length = min(len(strs[i]), len(prefix))
 
-            for i in range(length):
-                if strs[j][i] == prefix[i]:
+            for j in range(length):
+                if strs[i][j] == prefix[j]:
                     count += 1
                 else:
                     break
 
-            prefix = strs[j][:count]
+            prefix = strs[i][:count]
 
             if prefix == "":
                 break
@@ -77,13 +91,16 @@ strs = ["flower","flow","flight"]
 
 print("Example 1 = ", sol.longestCommonPrefix(strs))  # Expected = "fl"
 print("Example 1-1 = ", sol.vertical_scanning(strs))
+print("Example 1-2 = ", sol.startWithPrefix(strs))
 
 strs = ["dog","racecar","car"]
 
 print("Example 2 = ", sol.longestCommonPrefix(strs))  # Expected = ""
 print("Example 2-1 = ", sol.vertical_scanning(strs))
+print("Example 2-2 = ", sol.startWithPrefix(strs))
 
 strs = ["ab","a"]
 
 print("Example 3 = ", sol.longestCommonPrefix(strs))  # Expected = "a"
 print("Example 3-1 = ", sol.vertical_scanning(strs))
+print("Example 3-2 = ", sol.startWithPrefix(strs))
