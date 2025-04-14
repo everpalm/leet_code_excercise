@@ -31,7 +31,22 @@ s and t consist of lowercase English letters.
 Follow up: What if the inputs contain Unicode characters? How would you adapt
 your solution to such a case?
 '''
+from collections import Counter
+
+
 class Solution(object):
+    def isAnagramFreq(self, s, t):
+        sum_s = Counter(s)
+        sum_t = Counter(t)
+
+        if len(s) != len(t):
+            return False
+        
+        for key, value in sum_s.items():
+            if sum_t[key] != value:
+                return False
+        return True
+    
     def isAnagram(self, s, t):
         """
         :type s: str
@@ -79,11 +94,11 @@ t = "nagaram"
 print('s = ', s)
 print('t = ', t)
 print('Expected = ', True)
-print('Output = ', my_solution.isAnagram(s, t))
+print('Output = ', my_solution.isAnagramFreq(s, t))
 
 s = "rat"
 t = "car"
 print('s = ', s)
 print('t = ', t)
-print('Expected = ', True)
-print('Output = ', my_solution.isAnagram(s, t))
+print('Expected = ', False)
+print('Output = ', my_solution.isAnagramFreq(s, t))
