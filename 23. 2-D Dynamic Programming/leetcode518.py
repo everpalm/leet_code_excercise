@@ -39,3 +39,56 @@ Constraints:
 All the values of coins are unique.
 0 <= amount <= 5000
 '''
+from typing import List
+
+
+class Solution:
+    def change(self, amount: int, coins: List[int]) -> int:
+        def dfs(index: int, current: int) -> int:
+            # 如果当前金额正好等于目标金额，找到一种合法组合
+            if current == amount:
+                return 1
+            # 如果当前金额超过目标金额，或没有硬币可用，则无法组成目标金额
+            if current > amount or index == len(coins):
+                return 0
+            
+            count = 0
+            coin_value = coins[index]
+            # 尝试使用 k 个当前硬币，只要总金额不超过目标
+            k = 0
+            while current + k * coin_value <= amount:
+                count += dfs(index + 1, current + k * coin_value)
+                k += 1
+            return count
+
+        return dfs(0, 0)
+    
+    def dynamic_programming(self, amount: int, coins: List[int]) -> int:
+        # 初始化 dp 陣列，dp[i] 表示凑出金額 i 的組合數，初始全為 0
+        dp = [0] * (amount + 1)
+        dp[0] = 1  # 凑出 0 金額只有一種方法：不選任何硬幣
+
+        # 遍歷每一種硬幣
+        for coin in coins:
+            # 對每個硬幣，從 coin 到 amount 更新 dp 值
+            for j in range(coin, amount + 1):
+                dp[j] += dp[j - coin]
+        
+        return dp[amount]
+
+if __name__ == '__main__':  
+    sol = Solution()
+    amount = 5
+    coins = [1,2,5]
+    print(sol.change(amount, coins))  # Expected 4
+    print(sol.dynamic_programming(amount, coins))  # Expected 4
+
+    amount = 3
+    coins = [2]
+    print(sol.change(amount, coins))  # Expected 0
+    print(sol.dynamic_programming(amount, coins))  # Expected 4
+
+    amount = 10
+    coins = [10]
+    print(sol.change(amount, coins))  # Expected 1
+    print(sol.dynamic_programming(amount, coins))  # Expected 4
