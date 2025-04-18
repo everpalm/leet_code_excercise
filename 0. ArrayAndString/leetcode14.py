@@ -104,3 +104,27 @@ strs = ["ab","a"]
 print("Example 3 = ", sol.longestCommonPrefix(strs))  # Expected = "a"
 print("Example 3-1 = ", sol.vertical_scanning(strs))
 print("Example 3-2 = ", sol.startWithPrefix(strs))
+
+strs = ["abc","abc", "abc"]
+
+print("Example 4 = ", sol.longestCommonPrefix(strs))  # Expected = "abc"
+print("Example 4-1 = ", sol.vertical_scanning(strs))
+print("Example 4-2 = ", sol.startWithPrefix(strs))
+
+strs = ["abc"]
+
+print("Example 5 = ", sol.longestCommonPrefix(strs))  # Expected = "abc"
+print("Example 5-1 = ", sol.vertical_scanning(strs))
+print("Example 5-2 = ", sol.startWithPrefix(strs))
+
+strs = [""]
+
+print("Example 6 = ", sol.longestCommonPrefix(strs))  # Expected = "abc"
+print("Example 6-1 = ", sol.vertical_scanning(strs))
+print("Example 6-2 = ", sol.startWithPrefix(strs))
+
+strs = ["abc", ""]
+
+print("Example 7 = ", sol.longestCommonPrefix(strs))  # Expected = "abc"
+print("Example 7-1 = ", sol.vertical_scanning(strs))
+print("Example 7-2 = ", sol.startWithPrefix(strs))

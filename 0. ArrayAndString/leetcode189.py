@@ -37,13 +37,24 @@ Constraints:
 from typing import List
  
 class Solution():
+    def brute_force(self, nums: List[int], k: int) -> List:
+        n = len(nums)
+        # 如果 k 大于 n，实际旋转次数为 k % n
+        k %= n
+        for _ in range(k):
+            # 保存数组最后一个元素
+            last = nums[-1]
+            # 将所有元素向右移动一位，从后往前赋值
+            for i in range(n - 1, 0, -1):
+                nums[i] = nums[i - 1]
+            # 将最后一个元素放到数组首位
+            nums[0] = last
+
     def rotate_array(self, nums: List[int], k: int) -> List:
         n = len(nums)
         k %= n
         nums.reverse()
-        # nums[:k].reverse()
         nums[:k] = nums[:k][::-1]
-        # nums[k + 1:].reverse()
         nums[k:] = nums[k:][::-1]
         return nums
     
@@ -64,10 +75,20 @@ class Solution():
         # print('nums = ', nums)
         reverse(nums, k, n - 1)
         # print('nums = ', nums)
-        return nums
 
 solution = Solution()
 a = [1, 2, 3, 4, 5, 6, 7]
-print("solution1 = ", solution.rotate_array(a, 3))
+solution.rotate_array(a, 3)
+print("solution1 = ", a)
+
+a = [1, 2, 3, 4, 5, 6, 7]
+solution.brute_force(a, 3)
+print("solution2 = ", a)
+
 b = [1, 2, 3, 4, 5, 6, 7]
-print("solution2 = ", solution.inplace_operation(b, 3))
+solution.inplace_operation(b, 3)
+print("solution3 = ", b)
+
+b = [1, 2, 3, 4, 5, 6, 7]
+solution.brute_force(b, 3)
+print("solution4 = ", b)
