@@ -37,12 +37,14 @@ Constraints:
 -1000 <= target <= 1000
 '''
 from typing import List
+from functools import lru_cache
 
 
 class Solution:
     def findTargetSumWays(self, nums: List[int], target: int) -> int:
         n = len(nums)
         
+        @lru_cache(None)
         def dfs(index: int, current_sum: int) -> int:
             if index == n:
                 return 1 if current_sum == target else 0
@@ -52,6 +54,27 @@ class Solution:
                 dfs(index + 1, current_sum + nums[index]) +
                 dfs(index + 1, current_sum - nums[index])
             )
+        
+        return dfs(0, 0)
+    
+    def findTargetSumWaysMemo(self, nums: List[int], target: int) -> int:
+        n = len(nums)
+        memo = {}
+        
+        def dfs(index: int, current_sum: int) -> int:
+            if (index, current_sum) in memo:
+                return memo[(index, current_sum)]
+            
+            if index == n:
+                return 1 if current_sum == target else 0
+            
+            # 選擇 +nums[index] 或 -nums[index]
+            count = (
+                dfs(index + 1, current_sum + nums[index]) +
+                dfs(index + 1, current_sum - nums[index])
+            ) 
+            memo[(index, current_sum)] = count
+            return count 
         
         return dfs(0, 0)
     

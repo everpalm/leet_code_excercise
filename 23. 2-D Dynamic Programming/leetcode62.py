@@ -77,8 +77,12 @@ Explanation: From the top-left corner, there are a total of 3 ways to reach the 
 Constraints:
 1 <= m, n <= 100
 '''
+from functools import lru_cache
+
+
 class Solution:
     def brute_force(self, m: int, n: int) -> int:
+        @lru_cache(None)
         def count_paths(x, y):
             # 基礎情況：到達右下角
             if x == m - 1 and y == n - 1:
