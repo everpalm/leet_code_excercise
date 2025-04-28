@@ -71,7 +71,24 @@ class Solution:
                 i += 1
         return len(nums)
     
+    def optimization(self, nums: List[int]) -> int:
+        if not nums:
+            return 0
+        n = len(nums)
+        i = 0
+        for j in range(1, n):
+            if nums[i] != nums[j]:
+                i += 1
+                nums[i] = nums[j]
+
+        return i + 1
+    
 if __name__ == '__main__':
     sol = Solution()
     nums = [1,1,2]
-    print(sol.removeDuplicates(nums))  #Expected 2
+    print('Examipe 1: ', sol.removeDuplicates(nums))  #Expected 2
+    print('Example 1-1: ', sol.optimization(nums))  #Expected 2
+
+    nums = [0,0,1,1,1,2,2,3,3,4]
+    print('Examipe 2: ', sol.removeDuplicates(nums))  #Expected 5
+    print('Example 2-1: ', sol.optimization(nums))  #Expected 5
