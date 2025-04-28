@@ -51,6 +51,19 @@ answer[3] = answer[2] * num[2] = 2 * 3
 
 
 class Solution(object):
+    def brute_force(self, nums):
+        n = len(nums)
+        output = []
+
+        for i in range(n):
+            prod = 1
+            for j in range(n):
+                if i != j:
+                    prod *= nums[j]
+            output.append(prod)
+
+        return output
+    
     def productExceptSelf(self, nums):
         """
         :type nums: List[int]
@@ -58,11 +71,11 @@ class Solution(object):
         """
         length = len(nums)
         # The answer array to be returned
-        answer = [0]*length
+        answer = [1]*length
         print('answer = ', answer)
         # answer[i] contains the product of all the elements to the left
         # For the element at index 0, there are no elements to the left, so answer[0] should be 1
-        answer[0] = 1
+        # answer[0] = 1
         for i in range(1, length):
             answer[i] = nums[i - 1] * answer[i - 1]
             print(f'answer[{i}] = ', answer[i])
@@ -96,11 +109,15 @@ my_solution = Solution()
 nums = [1, 2, 3, 4]
 result = my_solution.productExceptSelf(nums)
 print('Test1 result = ', result)
+result = my_solution.brute_force(nums)
+print('Test1-1 result = ', result)
 
 my_solution = Solution()
 nums = [-1, -1, 0, -3, -3]
 result = my_solution.productExceptSelf(nums)
 print('Test2 result = ', result)
+result = my_solution.brute_force(nums)
+print('Test2-1 result = ', result)
 
 '''
 我們以數組 `[1, 2, 3, 4]` 為例，詳細列出計算過程，分別計算左側乘積和右側乘積，最後合併得出結果。
