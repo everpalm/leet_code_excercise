@@ -48,6 +48,7 @@ answer[2] = answer[1] * num[1] = 1 * 2
 answer[3] = answer[2] * num[2] = 2 * 3
 '''
 # import operator
+from typing import List
 
 
 class Solution(object):
@@ -71,8 +72,8 @@ class Solution(object):
         """
         length = len(nums)
         # The answer array to be returned
-        answer = [1]*length
-        print('answer = ', answer)
+        answer = [1] * length
+        # print('answer = ', answer)
         # answer[i] contains the product of all the elements to the left
         # For the element at index 0, there are no elements to the left, so answer[0] should be 1
         # answer[0] = 1
@@ -92,18 +93,20 @@ class Solution(object):
             # print(f'multiplier = ', multiplier)
         return answer
 
-        # Brute-force solution
-        # result = []
-        # Loop over each element in nums
-        # for i in range(len(nums)):
-        #     product = 1
-        #     # Multiply all elements except itself
-        #     for j in range(len(nums)):
-        #         if i != j:
-        #             product *= nums[j]
-        #     result.append(product)
-        # return result
-    
+    def productExceptSelf1(self, nums: List[int]) -> List:
+        n = len(nums)
+        answer = [0] * n
+        prefix = 1
+        for i in range(n):
+            answer[i] = prefix
+            prefix *= nums[i]
+
+        suffix = 1
+        for j in range(n - 1, -1, -1):
+            answer[j] *= suffix
+            suffix *= nums[j]
+
+        return answer  
 
 my_solution = Solution()
 nums = [1, 2, 3, 4]
@@ -111,6 +114,8 @@ result = my_solution.productExceptSelf(nums)
 print('Test1 result = ', result)
 result = my_solution.brute_force(nums)
 print('Test1-1 result = ', result)
+result = my_solution.productExceptSelf1(nums)
+print('Test1-2 result = ', result)
 
 my_solution = Solution()
 nums = [-1, -1, 0, -3, -3]
@@ -118,7 +123,8 @@ result = my_solution.productExceptSelf(nums)
 print('Test2 result = ', result)
 result = my_solution.brute_force(nums)
 print('Test2-1 result = ', result)
-
+result = my_solution.productExceptSelf1(nums)
+print('Test2-2 result = ', result)
 '''
 我們以數組 `[1, 2, 3, 4]` 為例，詳細列出計算過程，分別計算左側乘積和右側乘積，最後合併得出結果。
 
