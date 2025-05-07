@@ -36,3 +36,35 @@ The input must be a binary string of length 32
  
 Follow up: If this function is called many times, how would you optimize it?
 '''
+class Solution:
+    def reverseBits(self, n: int) -> int:
+        res = 0
+        for _ in range(32):
+            bit = n & 1
+            res <<= 1
+            res |= bit
+            n >>= 1
+        return res
+    
+    def optimized(self, n: int) -> int:
+        # 1. 交换 16 位
+        n = ((n >> 16) | (n << 16)) & 0xFFFFFFFF
+        # 2. 交换 8 位
+        n = ((n & 0xFF00FF00) >> 8) | ((n & 0x00FF00FF) << 8)
+        # 3. 交换 4 位
+        n = ((n & 0xF0F0F0F0) >> 4) | ((n & 0x0F0F0F0F) << 4)
+        # 4. 交换 2 位
+        n = ((n & 0xCCCCCCCC) >> 2) | ((n & 0x33333333) << 2)
+        # 5. 交换 1 位
+        n = ((n & 0xAAAAAAAA) >> 1) | ((n & 0x55555555) << 1)
+        return n
+
+if __name__ == '__main__':
+    sol = Solution()
+    n = 0b00000010100101000001111010011100
+    print('Example 1 = ', sol.reverseBits(n))  # Expected 964176192
+    print('Example 1-1 = ', sol.optimized(n))  # Expected 964176192
+    
+    n = 0b11111111111111111111111111111101
+    print('Example 2 = ', sol.reverseBits(n))  # Expected 3221225471
+    print('Example 2-1 = ', sol.optimized(n))  # Expected 3221225471
