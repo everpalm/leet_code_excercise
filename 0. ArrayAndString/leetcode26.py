@@ -62,7 +62,6 @@ class Solution:
     def removeDuplicates(self, nums: List[int]) -> int:
         if not nums:
             return 0
-        n = len(nums)
         i = 0
         while i < len(nums) - 1:
             if nums[i] == nums[i + 1]:
