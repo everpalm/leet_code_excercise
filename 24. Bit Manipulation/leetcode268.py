@@ -48,14 +48,37 @@ class Solution:
                     break
             if not found:
                 return i
+            
+    def sumNumber(self, nums: List[int]) -> int:
+        n = len(nums)
+        summary = int(n * (n + 1) / 2)
+        total = sum(nums)
+        return summary - total
+    
+    def optimized(self, nums: List[int]) -> int:
+        n = len(nums)
+        missing = 0
+        for i in range(n + 1):
+            missing ^= i
+        
+        for num in nums:
+            missing ^= num
+
+        return missing
 
 if __name__ == '__main__':
     sol = Solution()
     nums = [3,0,1]
     print('Example 1 = ', sol.missingNumber(nums))  # Expected 2
+    print('Example 1-1 = ', sol.sumNumber(nums))  # Expected 2
+    print('Example 1-2 = ', sol.optimized(nums))  # Expected 2
     
     nums = [0,1]
     print('Example 2 = ', sol.missingNumber(nums))  # Expected 2
+    print('Example 2-1 = ', sol.sumNumber(nums))  # Expected 2
+    print('Example 2-2 = ', sol.optimized(nums))  # Expected 2
     
     nums = [9,6,4,2,3,5,7,0,1]
     print('Example 3 = ', sol.missingNumber(nums))  # Expected 8
+    print('Example 3-1 = ', sol.sumNumber(nums))  # Expected 8
+    print('Example 3-2 = ', sol.optimized(nums))  # Expected 8
