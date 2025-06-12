@@ -24,11 +24,8 @@ class Solution():
         def helper(node):
             if isinstance(node, dict):
                 for key, val in node.items():
-                    if key == value: 
-                        return True
-                    if helper(val):
-                        return True
-                
+                    if key == target or helper(val): 
+                        return True  
             elif isinstance(node, list):
                 for item in node:
                     if helper(item):
@@ -37,6 +34,21 @@ class Solution():
                 return node == target
             return False
 
+        return helper(data)
+    def has_value_2(self, data, target):
+        def helper(node):
+            if isinstance(node, dict):
+                for key, val in node.items():
+                    if key == target or helper(val): 
+                        return True
+            elif isinstance(node, list):
+                for item in node:
+                    if helper(item):
+                        return True
+            else:
+                return node == target
+            return False
+        
         return helper(data)
     
 if __name__ == '__main__':

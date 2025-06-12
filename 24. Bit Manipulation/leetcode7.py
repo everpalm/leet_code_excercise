@@ -40,6 +40,14 @@ class Solution:
             return 0
         return res
     
+    def reverse2(self, x: int) -> int:
+        sign = 1 if x >= 0 else -1
+        value = str(abs(x))
+        value = int(value[::-1]) * sign
+        if (value <= -2**31) or (value >= (2**31 - 1)):
+            return 0 
+        return value
+    
     def popPush(self, x: int) -> int:
         INT_MAX, INT_MIN = 2**31 - 1, -2**31
         res = 0
