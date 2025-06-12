@@ -44,21 +44,44 @@ class Solution(object):
                 # If the stack is empty or the top of the stack does not match the closing bracket
                 if not stack or stack[-1] != bracket_map[char]:
                     return False
-                print('pop stack = ', stack)
                 stack.pop()  # Pop the matching opening bracket
             else: # Open bracket
                 stack.append(char)  # Push opening bracket onto stack
-                print('append stack = ', stack)
         
         # If stack is empty, all brackets are matched correctly
         return not stack
 
-my_solution = Solution()
+    def is_valid_parentheses_brute_force(self, s):
+        """
+        暴力解法: 不断删除相邻的匹配括号对
+        时间复杂度: O(n^2)\, 其中n是字符串长度
+        空间复杂度: O(n)
+        """
+        while True:
+            # 记录原始字符串长度
+            original_length = len(s)
+            
+            # 替换所有匹配的括号对
+            s = s.replace('()', '').replace('{}', '').replace('[]', '')
+            
+            # 如果字符串长度没有变化，说明无法继续删除
+            if len(s) == original_length:
+                break
+        
+        # 如果最终字符串为空，说明所有括号都正确匹配
+        return len(s) == 0
+
+# my_solution = Solution()
 # Example calls to test the function (commented out)
-print(my_solution.is_valid_parentheses("()"))         # Output: True
-print(my_solution.is_valid_parentheses("()[]{}"))     # Output: True
-print(my_solution.is_valid_parentheses("(]"))         # Output: False
-print(my_solution.is_valid_parentheses("([)]"))       # Output: False
-print(my_solution.is_valid_parentheses("{[()]}"))       # Output: True
-print(my_solution.is_valid_parentheses(""))       # Output: True
+# print(my_solution.is_valid_parentheses("()"))         # Output: True
+# print(my_solution.is_valid_parentheses("()[]{}"))     # Output: True
+# print(my_solution.is_valid_parentheses("(]"))         # Output: False
+# print(my_solution.is_valid_parentheses("([)]"))       # Output: False
+# print(my_solution.is_valid_parentheses("{[()]}"))       # Output: True
+# print(my_solution.is_valid_parentheses(""))       # Output: True
 # print(my_solution.is_valid_parentheses("abcd"))       # Output: True
+
+solution = Solution()
+print(solution.is_valid_parentheses_brute_force("()[]{}"))  # 应该返回 True
+print(solution.is_valid_parentheses_brute_force("([)]"))    # 应该返回 False
+print(solution.is_valid_parentheses_brute_force("()"))    # 应该返回 True
