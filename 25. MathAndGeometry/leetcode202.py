@@ -71,9 +71,30 @@ class Solution:
 
         return fast == 1
     
+    def isHappy_recursive(self, n: int) -> bool:
+        def get_next(x):
+            res = 0
+            while x > 0:
+                digit = x % 10
+                res += digit * digit
+                x //= 10
+            return res
+            
+        def helper(n, seen):
+            if n == 1:
+                return True
+            if n in seen:
+                return False
+            seen.add(n)
+            return helper(get_next(n), seen)
+            
+        return helper(n, set())
+    
 if __name__ == "__main__":
     solution = Solution()
     print(solution.isHappy_brute_force(19))
     print(solution.isHappy_optimal(19))
     print(solution.isHappy_brute_force(2))
     print(solution.isHappy_optimal(2))
+    print(solution.isHappy_recursive(19))  # 测试递归解法
+    print(solution.isHappy_recursive(2))   # 测试递归解法
