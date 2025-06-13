@@ -66,11 +66,14 @@ class Solution:
     def myPow_advanced(self, x: float, n: int) -> float:
         N = abs(n)
         res = 1.0
-        while N:
+        current_product = x  # 我們獨立出來，不動原始 x
+
+        while N > 0:
             if N % 2 == 1:
-                res *= x
-            x *= x
+                res *= current_product
+            current_product *= current_product  # 這個值才真的會再被用到
             N //= 2
+
         return res if n >= 0 else 1 / res
     
 if __name__ == "__main__":
